@@ -1,0 +1,15 @@
+button {
+    padding: 10px 20px;
+    margin: 25px;
+    border-radius: 13px;
+    background: rgba(196,228,245,255);
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+}
