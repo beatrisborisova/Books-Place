@@ -1,6 +1,6 @@
 #header-container {
     text-align: center;
-    background: url('https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg&ga=GA1.2.2005928512.1641340800');
+    background-image: '../../assets/images/headerBackground.png';
     background-repeat: no-repeat;
     background-size:cover;
 }
@@ -8,10 +8,6 @@
 #header-content {
     padding: 30px;
     font-size: 25px;
-}
-
-.header-text {
-    font-family: 'Noto Sans', sans-serif;
 }
 
 #welcome {

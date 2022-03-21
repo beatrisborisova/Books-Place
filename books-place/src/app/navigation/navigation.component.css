@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 7px 23px 5px rgba(0,0,0,0.15);
-    font-family: 'Noto Sans', sans-serif;
 }
 
 #nav-ul, #nav-user-ul {

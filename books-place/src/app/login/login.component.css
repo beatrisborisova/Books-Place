@@ -1,0 +1,47 @@
+#login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-content {
+    text-align: center;
+    width: 250px;
+}
+
+#title {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+#login-content div {
+    margin-top: 15px;
+}
+
+#login-content label {
+    font-weight: bold;
+}
+
+#login-content input {
+    outline: none;
+    width: 100%;
+    padding: 5px;
+    border-radius: 13px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 25px;
+    border-radius: 13px;
+    background: rgba(252, 191, 126, 255);
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+}
