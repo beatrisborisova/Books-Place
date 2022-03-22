@@ -13,6 +13,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { BookComponent } from './book/book.component';
 import { FooterComponent } from './footer/footer.component';
 import { BooksComponent } from './books/books.component';
+import { CreateComponent } from './create/create.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BookService } from './services/book.service';
+import { FormsModule } from '@angular/forms';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -26,13 +31,19 @@ import { BooksComponent } from './books/books.component';
     ProfileComponent,
     BookComponent,
     FooterComponent,
-    BooksComponent
+    BooksComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    BookService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

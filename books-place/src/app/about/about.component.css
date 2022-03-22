@@ -1,6 +1,8 @@
 #about-container {
     text-align: center;
     background: rgba(246,246,246,255);
+    padding: 50px;
+    margin: 0;
 }
 
 #intro {

@@ -1,4 +1,4 @@
-#login-container {
+#create-book-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     padding: 50px;
 }
 
-#login-content {
+#create-book-content {
     text-align: center;
     width: 250px;
 }
@@ -17,20 +17,21 @@
     margin: 20px;
 }
 
-#login-content div {
+#create-book-content div {
     margin-top: 15px;
 }
 
-#login-content label {
+#create-book-content label {
     font-weight: bold;
 }
 
-#login-content input {
+#create-book-content input, textarea {
     outline: none;
     width: 100%;
     padding: 5px;
     border-radius: 13px;
     border: 1px solid;
+
 }
 
 button {

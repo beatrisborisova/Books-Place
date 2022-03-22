@@ -1,0 +1,12 @@
+<div id="create-book-container">
+    <div id="create-book-content">
+        <h2>Add new book</h2>
+        <form #form="ngForm" (submit)="(form.value)">
+            <div><label>Title: <input type="text" name="title" ngModel></label></div>
+            <div><label>Author: <input type="text" name="author" ngModel></label></div>
+            <div><label>Year of publishing: <input type="text" name="year" ngModel></label></div>
+            <div><label>Resume: <textarea name="resume" ngModel></textarea></label></div>
+            <button type="submit">Add book</button>
+        </form>
+    </div>
+</div>
