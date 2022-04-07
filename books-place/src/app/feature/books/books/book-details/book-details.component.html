@@ -5,14 +5,14 @@
         </div>
         <div id="book-info">
             <h2>Book info</h2>
-            <div><span>Title:</span> {{book.title}}</div>
-            <div><span>Author:</span> {{book.author}}</div>
-            <div><span>Year of publishing:</span> {{book.year}}</div>
-            <div><span>Resume:</span> {{book.resume}}</div>
-            <button id="editBtn">Edit</button>
+            <div><span>Title:</span> {{currentBook.title}}</div>
+            <div><span>Author:</span> {{currentBook.author}}</div>
+            <div><span>Year of publishing:</span> {{currentBook.year}}</div>
+            <div><span>Resume:</span> {{currentBook.resume}}</div>
+            <button id="editBtn" click="deleteBookById()">Edit</button>
             <button id="deleteBtn">Delete</button>
             <button id="saveBtn">Save to favourites</button>
-            
+
         </div>
     </div>
 </div>

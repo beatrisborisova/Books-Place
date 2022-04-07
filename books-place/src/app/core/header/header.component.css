@@ -1,6 +1,6 @@
 #header-container {
     text-align: center;
-    background-image: url('../../assets/images/headerBackground.png');
+    background-image: url('../../../assets/images/headerBackground.png');
     background-repeat: no-repeat;
     background-size:cover;
 }

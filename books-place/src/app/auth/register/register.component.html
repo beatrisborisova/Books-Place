@@ -1,0 +1,15 @@
+<div id="register-container">
+    <div id="title">Sign up</div>
+    <div id="required">* All fields are required</div>
+    <div id="register-content">
+        <form [formGroup]="registerFormGroup" (ngSubmit)="onRegister()">
+            <div><label>Email <input type="text" name="email" formControlName="email" required></label></div>
+            <div><label>Password <input type="password" name="password" formControlName="password" required></label>
+            </div>
+            <div><label>Repeat password <input type="password" name="repass" formControlName="repass" required></label>
+            </div>
+            <button type="submit" [disabled]="!registerFormGroup.valid">Sign up</button>
+        </form>
+        <p>Already signed up? Click <a routerLink="/login">here</a></p>
+    </div>
+</div>

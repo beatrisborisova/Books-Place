@@ -3,16 +3,23 @@
         <ul id="nav-ul">
             <li class="nav-item"><a routerLink="/">Home</a></li>
             <li class="nav-item"><a routerLink="/books">Books</a></li>
-            <li class="nav-item"><a routerLink="/create">Add book</a></li>
             <li class="nav-item"><a routerLink="/about">About</a></li>
-            <li class="nav-item"><a routerLink="/profile">Profile</a></li>
+            <ng-container *ngIf="isLogged">
+                <li class="nav-item"><a routerLink="/create">Add book</a></li>
+                <li class="nav-item"><a routerLink="/profile">Profile</a></li>
+            </ng-container>
         </ul>
     </div>
     <div id="nav-user">
         <ul id="nav-user-ul">
-            <li class="nav-item"><a routerLink="/login">Login</a></li>
-            <li class="nav-item"><a routerLink="/register">Register</a></li>
-            <li class="nav-item"><a routerLink="#">Logout</a></li>
+            <ng-container *ngIf="!isLogged() else logout">
+                <li class="nav-item"><a routerLink="/login">Login</a></li>
+                <li class="nav-item"><a routerLink="/register">Register</a></li>
+            </ng-container>
         </ul>
     </div>
 </nav>
+
+<ng-template #logout>
+    <li class="nav-item"><a routerLink="/" (click)="onLogout()">Logout</a></li>
+</ng-template>

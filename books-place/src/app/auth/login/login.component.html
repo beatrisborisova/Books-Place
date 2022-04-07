@@ -1,0 +1,11 @@
+<div id="login-container">
+    <div id="title">Sign in</div>
+    <div id="login-content">
+        <form [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
+            <div><label>Email <input type="text" name="email" formControlName="email" required></label></div>
+            <div><label>Password <input type="password" name="password" formControlName="password" required></label></div>
+            <button type="submit" [disabled]="!loginFormGroup.valid">Sign in</button>
+        </form>
+        <p>You have not registed yet? Click <a routerLink="/register">here</a></p>
+    </div>
+</div>

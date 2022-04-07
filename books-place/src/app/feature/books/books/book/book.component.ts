@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import Book from '../models/book';
+import Book from '../../../../models/book';
 
 @Component({
   selector: 'app-book',
@@ -13,6 +13,13 @@ export class BookComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  here() {
+    console.log('button works');
+    
+    
   }
 
 }

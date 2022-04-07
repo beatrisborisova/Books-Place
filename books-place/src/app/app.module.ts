@@ -1,47 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { HeaderComponent } from './header/header.component';
-import { AboutComponent } from './about/about.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
-import { BookComponent } from './book/book.component';
-import { FooterComponent } from './footer/footer.component';
-import { BooksComponent } from './books/books.component';
+import { AboutComponent } from './feature/pages/about/about.component';
 import { CreateComponent } from './create/create.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BookService } from './services/book.service';
-import { FormsModule } from '@angular/forms';
-import { UserService } from './user.service';
+import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
+import { BooksModule } from './feature/books/books.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './core/user.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavigationComponent,
-    HeaderComponent,
     AboutComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    BookComponent,
-    FooterComponent,
-    BooksComponent,
     CreateComponent
   ],
   imports: [
     BrowserModule,
+    CoreModule,
+    AuthModule,
+    BooksModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
-    BookService,
     UserService
   ],
   bootstrap: [AppComponent]
