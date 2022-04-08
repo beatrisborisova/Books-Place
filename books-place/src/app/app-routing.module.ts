@@ -10,11 +10,17 @@ import { RegisterComponent } from './auth/register/register.component';
 import { BookDetailsComponent } from './feature/books/books/book-details/book-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
+import { EditComponent } from './core/edit/edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'books', component: BooksComponent },
-  { path: 'books/:bookId', component: BookDetailsComponent },
+  {
+    path: 'books', children: [
+      { path: '', pathMatch: 'full', component: BooksComponent },
+      { path: 'details/:bookId', component: BookDetailsComponent },
+      { path: 'edit/:bookId', component: EditComponent, canActivate: [AuthGuard] },
+    ]
+  },
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },

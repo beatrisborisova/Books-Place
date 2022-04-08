@@ -16,10 +16,4 @@ export class BookComponent implements OnInit {
 
   }
 
-  here() {
-    console.log('button works');
-    
-    
-  }
-
 }

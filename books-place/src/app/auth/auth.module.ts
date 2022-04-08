@@ -19,7 +19,6 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule
   ],
   providers: [
-    
     FormBuilder,
   ]
 

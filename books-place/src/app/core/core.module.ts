@@ -5,13 +5,15 @@ import { FooterComponent } from './footer/footer.component';
 import { BookService } from './book.service';
 import { UserService } from './user.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,

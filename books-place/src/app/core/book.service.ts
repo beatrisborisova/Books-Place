@@ -15,14 +15,18 @@ export class BookService {
 
   getAllBooks(): Observable<any> {
     return this.http.get<any>(`${BASE_URL}.json`)
-    .pipe(
-      map((res: Response) => {
-        return Object.values(res);
-      })
-    )
+      .pipe(
+        map((res: Response) => {
+          if (res) {
+            return Object.entries(res).map(([id, v]) => Object.assign({}, { id }, v));
+          } else {
+            return;
+          }
+        })
+      )
   };
 
-  getOneBook(bookId: string): Observable<any> {    
+  getOneBook(bookId: string): Observable<any> {
     return this.http.get<Books>(`${BASE_URL}${bookId}.json`);
   };
 

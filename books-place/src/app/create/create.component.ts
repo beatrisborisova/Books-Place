@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CreateComponent implements OnInit {
 
-  public userId: any = sessionStorage.getItem('userId');
+  public userId: any = localStorage.getItem('token');
 
 
   createFormGroup: FormGroup = this.formBuilder.group({
@@ -35,20 +35,15 @@ export class CreateComponent implements OnInit {
     let author = this.createFormGroup.controls['author'].value;
     let year = this.createFormGroup.controls['year'].value;
     let resume = this.createFormGroup.controls['resume'].value;
-    let owner = sessionStorage.getItem('userId');
 
     const book = {
       title,
       author,
       year,
-      resume,
-      owner
-    }
-
-    console.log(this.bookService.createBook(book));
+      resume
+    };
     
     this.bookService.createBook(book).subscribe(data =>{
-      console.log('data', data)
       this.toastr.success('Book added', 'Success')
       this.router.navigate(['/books'])
     });

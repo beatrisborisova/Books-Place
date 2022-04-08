@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/core/book.service';
 import Book from '../../../../models/book';
 
@@ -17,7 +18,7 @@ export class BookDetailsComponent implements OnInit {
   bookId!: string;
   currentBook!: any;
 
-  constructor(private bookService: BookService, private route: ActivatedRoute) { }
+  constructor(private bookService: BookService, private route: ActivatedRoute, private toastr: ToastrService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -26,5 +27,14 @@ export class BookDetailsComponent implements OnInit {
     this.bookService.getOneBook(this.bookId).subscribe(data => {
       this.currentBook = data;
     });
+  }
+
+  onDelete() {
+    this.bookService.deleteBook(this.bookId)
+      .subscribe(data => {
+        this.router.navigate(['/books']);
+        this.toastr.success('Book deleted', 'Success');
+        return data;
+      })
   }
 }

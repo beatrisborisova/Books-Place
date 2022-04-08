@@ -14,5 +14,7 @@ export class AppComponent implements OnInit {
       apiKey: "AIzaSyAvVbCm0m8G3Wlb-LZxXsAS4EVO5I7234Q",
       authDomain: "books-place-c5f24.firebaseapp.com"
     });
+
+
   }
 }
