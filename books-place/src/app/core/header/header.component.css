@@ -1,13 +1,11 @@
 #header-container {
     text-align: center;
-    background-image: url('../../../assets/images/headerBackground.png');
-    background-repeat: no-repeat;
-    background-size:cover;
 }
 
 #header-content {
     padding: 30px;
     font-size: 25px;
+    color: #000000;
 }
 
 #welcome {

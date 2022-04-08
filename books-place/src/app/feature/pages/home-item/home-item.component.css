@@ -1,0 +1,19 @@
+#home-item-container {
+    text-align: center;
+    border: 1px solid;
+    width: 130px;
+    padding: 30px;
+    background: rgb(236, 166, 35);
+    box-shadow: 5px 5px 21px 5px rgb(0 0 0 / 17%);
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button #home-item-container:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    font-weight: bold;
+}

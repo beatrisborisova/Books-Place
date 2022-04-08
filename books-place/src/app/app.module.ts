@@ -17,14 +17,13 @@ import { UserService } from './core/user.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     AboutComponent,
     CreateComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +42,8 @@ import { NotFoundComponent } from './feature/pages/not-found/not-found.component
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+
   ],
   bootstrap: [AppComponent]
 })

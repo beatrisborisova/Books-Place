@@ -6,6 +6,7 @@ import { HomeComponent } from '../pages/home/home.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { HomeItemComponent } from '../pages/home-item/home-item.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     BookComponent,
     BooksComponent,
     BookDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    HomeItemComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     BookComponent,
     BooksComponent,
     BookDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    HomeItemComponent
   ]
 })
 export class BooksModule { }
