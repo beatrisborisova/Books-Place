@@ -9,6 +9,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { BookDetailsComponent } from './feature/books/books/book-details/book-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
-
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

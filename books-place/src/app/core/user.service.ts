@@ -78,6 +78,19 @@ export class UserService {
 
   }
 
+  getToken() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userdata = user;
+        this.token = userdata.accessToken;
+      }
+    })
+
+    return this.token;
+  }
+
+
   isAuthenticated(): boolean {
     return this.token != null;
   }

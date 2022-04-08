@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './feature/pages/about/about.component';
 import { CreateComponent } from './create/create.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { BooksModule } from './feature/books/books.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/user.service';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { UserService } from './core/user.service';
     AppComponent,
     NavigationComponent,
     AboutComponent,
-    CreateComponent
+    CreateComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,12 @@ import { UserService } from './core/user.service';
     BrowserAnimationsModule
   ],
   providers: [
-    UserService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
