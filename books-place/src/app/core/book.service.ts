@@ -5,7 +5,7 @@ import Books from '../models/books';
 import { UserService } from './user.service';
 
 
-const BASE_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/';
+const BASE_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/books';
 
 
 @Injectable({

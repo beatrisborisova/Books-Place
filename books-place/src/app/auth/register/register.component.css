@@ -39,6 +39,12 @@
 
 }
 
+a {
+    text-decoration: none;
+    color: rgb(90, 63, 27);
+    font-weight: bold;
+}
+
 button {
     padding: 10px 20px;
     margin: 25px;

@@ -9,10 +9,11 @@ import {
 } from 'firebase/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 let userdata!: any;
-let authorized = false;
-let currentUser!: any;
+const USERS_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/users/';
 
 
 @Injectable({
@@ -25,7 +26,7 @@ export class UserService {
   token!: any;
   uid!: any;
 
-  constructor(private toastr: ToastrService, private router: Router) { }
+  constructor(private toastr: ToastrService, private router: Router, private http: HttpClient) { }
 
   register(email: string, password: string) {
     const auth = getAuth();
@@ -96,4 +97,17 @@ export class UserService {
   isAuthenticated(): boolean {
     return this.token != null;
   }
+
+  getUser() {
+    const auth = getAuth()
+    return auth.currentUser;
+  }
+
+  editUser(user: {}): Observable<any> {
+    return this.http.patch(`${USERS_URL}.json`, user);
+  };
+
+  getUserProfile(userId: string): Observable<any> {
+    return this.http.get<any>(`${USERS_URL}${userId}.json`)
+  };
 }

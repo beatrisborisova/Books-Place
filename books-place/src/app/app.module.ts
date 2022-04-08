@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/user.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
+import { CategoriesComponent } from './feature/categories/categories.component';
 
 
 
@@ -26,6 +27,7 @@ import { NotFoundComponent } from './feature/pages/not-found/not-found.component
     AboutComponent,
     CreateComponent,
     NotFoundComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,

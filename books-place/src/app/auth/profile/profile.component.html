@@ -1,7 +1,12 @@
 <div id="profile-container">
     <h1>Your Profile</h1>
-    <div>Name: </div>
-    <div>Username: </div>
-    <button>Edit profile info</button>
-    <button>My books</button>
+    <div>Email: {{currentUser.email}}</div>
+    <div *ngIf="user">
+        <div *ngIf="user.name"> <label>Name: {{user.name}}</label></div>
+        <div *ngIf="user.city"><label>City: {{user.city}}</label></div>
+        <div *ngIf="user.phone"> <label>Phone number: {{user.phone}}</label></div>
+    </div>
+
+    <button routerLink="*">My books</button>
+    <button routerLink="/profile/edit">Edit profile info</button>
 </div>

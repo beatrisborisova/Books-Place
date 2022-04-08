@@ -11,11 +11,12 @@ import { BookDetailsComponent } from './feature/books/books/book-details/book-de
 import { AuthGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 import { EditComponent } from './core/edit/edit.component';
+import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'books' ,children: [
+    path: 'books', children: [
       { path: '', pathMatch: 'full', component: BooksComponent },
       { path: 'details/:bookId', component: BookDetailsComponent },
       { path: 'edit/:bookId', component: EditComponent, canActivate: [AuthGuard] },
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile/edit', component: EditProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
