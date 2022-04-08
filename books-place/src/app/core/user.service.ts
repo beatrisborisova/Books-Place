@@ -5,12 +5,15 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 let userdata!: any;
+let authorized = false;
+let currentUser!: any;
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +23,7 @@ export class UserService {
   user!: any;
   isLogged: boolean = false;
   token!: any;
-  UID!: any;
+  uid!: any;
 
   constructor(private toastr: ToastrService, private router: Router) { }
 
@@ -34,7 +37,7 @@ export class UserService {
             userdata = user;
             this.token = userdata.accessToken;
             localStorage.setItem('token', this.token);
-            this.UID = userdata.uid;
+            this.uid = userdata.uid;
           }
         })
         this.router.navigate(['/']);
@@ -55,7 +58,7 @@ export class UserService {
             userdata = user;
             this.token = userdata.accessToken;
             localStorage.setItem('token', this.token);
-            this.UID = userdata.uid;
+            this.uid = userdata.uid;
           }
         })
         this.router.navigate(['/']);
@@ -89,7 +92,6 @@ export class UserService {
 
     return this.token;
   }
-
 
   isAuthenticated(): boolean {
     return this.token != null;

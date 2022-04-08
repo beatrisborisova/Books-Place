@@ -10,8 +10,8 @@
                 <div><span>Author:</span> {{currentBook.author}}</div>
                 <div><span>Year of publishing:</span> {{currentBook.year}}</div>
                 <div><span>Resume:</span> {{currentBook.resume}}</div>
-                <button id="editBtn" routerLink="/books/edit/{{bookId}}">Edit</button>
-                <button id="deleteBtn" (click)="onDelete()">Delete</button>
+                <button id="editBtn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
+                <button id="deleteBtn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
                 <button id="saveBtn">Save to favourites</button>
     
             </div>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Book from 'src/app/models/book';
 import { BookService } from '../book.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-edit',
@@ -23,7 +24,8 @@ export class EditComponent implements OnInit {
     resume: new FormControl('', [Validators.required])
   });
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private bookService: BookService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private bookService: BookService, private toastr: ToastrService,
+    private userService: UserService) { }
 
   ngOnInit(): void {
 
@@ -42,6 +44,7 @@ export class EditComponent implements OnInit {
     let author = this.editFormGroup.controls['author'].value;
     let year = this.editFormGroup.controls['year'].value;
     let resume = this.editFormGroup.controls['resume'].value;
+    let owner = this.userService.uid;
 
     const book = {
       [this.bookId]: {
@@ -49,6 +52,7 @@ export class EditComponent implements OnInit {
         author,
         year,
         resume,
+        owner
       }
     }
     

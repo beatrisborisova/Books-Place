@@ -1,6 +1,6 @@
 interface User {
-    name: string;
-    username: string;
+    userId: string;
+    email: string;
     password: number;
     repass: number;
 };

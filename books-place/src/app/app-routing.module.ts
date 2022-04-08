@@ -15,7 +15,7 @@ import { EditComponent } from './core/edit/edit.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'books', children: [
+    path: 'books' ,children: [
       { path: '', pathMatch: 'full', component: BooksComponent },
       { path: 'details/:bookId', component: BookDetailsComponent },
       { path: 'edit/:bookId', component: EditComponent, canActivate: [AuthGuard] },
