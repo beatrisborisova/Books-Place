@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookService } from '../core/book.service';
-
-const book = {};
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create',
@@ -23,7 +21,7 @@ export class CreateComponent implements OnInit {
     resume: new FormControl('', [Validators.required])
   })
 
-  constructor(private bookService: BookService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private bookService: BookService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     if (!this.userId) {
@@ -49,7 +47,11 @@ export class CreateComponent implements OnInit {
 
     console.log(this.bookService.createBook(book));
     
-    this.bookService.createBook(book).subscribe(data => console.log('data', data));
+    this.bookService.createBook(book).subscribe(data =>{
+      console.log('data', data)
+      this.toastr.success('Book added', 'Success')
+      this.router.navigate(['/books'])
+    });
 
   }
 

@@ -15,22 +15,26 @@ export class BookService {
 
   getAllBooks(): Observable<any> {
     return this.http.get<any>(`${BASE_URL}.json`)
-    // .pipe(
-    //   map((res: Response) => {
-    //     console.log(res)
-    //   })
-    // )
+    .pipe(
+      map((res: Response) => {
+        return Object.values(res);
+      })
+    )
   };
 
-  getOneBook(bookId: string): Observable<any> {
-    return this.http.get<Books>('http://localhost:3000/data/books/' + bookId);
+  getOneBook(bookId: string): Observable<any> {    
+    return this.http.get<Books>(`${BASE_URL}${bookId}.json`);
   };
 
   createBook(book: {}): Observable<any> {
-    return this.http.post('http://localhost:3000/data/books', book);
+    return this.http.post(`${BASE_URL}.json`, book);
+  };
+
+  editBook(book: {}): Observable<any> {
+    return this.http.patch(`${BASE_URL}.json`, book);
   };
 
   deleteBook(bookId: string): Observable<any> {
-    return this.http.delete('http://localhost:3000/data/books' + bookId);
-  }
+    return this.http.delete(`${BASE_URL}${bookId}.json`);
+  };
 }
