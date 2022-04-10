@@ -6,14 +6,37 @@
             </div>
             <div id="book-info">
                 <h2>Book info</h2>
+
+                <div><b>Rates</b>: {{allRates}}</div>
+                <div class="col-md-4" *ngIf="!hasRated && !isOwner">
+                    <section *ngIf="!isRated" >
+                        <p><b>Rate this book</b></p>
+                        <bar-rating [max]="6" [(rate)]="rate">
+                            <ng-template ratingInactive>
+                                <fa-icon [icon]="['far', 'star']" [fixedWidth]="true" size="lg" style="color: #d2d2d2">
+                                </fa-icon>
+                            </ng-template>
+                            <ng-template ratingActive>
+                                <fa-icon [icon]="['fas', 'star']" [fixedWidth]="true" size="lg" style="color: #50e3c2">
+                                </fa-icon>
+                            </ng-template>
+                            <ng-template ratingFraction>
+                                <fa-icon [icon]="['fas', 'star-half-alt']" [fixedWidth]="true" size="lg"
+                                style="color: #50e3c2"></fa-icon>
+                            </ng-template>
+                        </bar-rating>
+                        <button (click)="onRate()">Rate</button>
+                    </section>
+                </div>
+
                 <div><span>Title:</span> {{currentBook.title}}</div>
                 <div><span>Author:</span> {{currentBook.author}}</div>
                 <div><span>Year of publishing:</span> {{currentBook.year}}</div>
                 <div><span>Resume:</span> {{currentBook.resume}}</div>
                 <button id="editBtn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
                 <button id="deleteBtn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
-                <button id="saveBtn">Save to favourites</button>
-    
+                <button id="saveBtn" (click)="saveToFavourites()" *ngIf="!isFav">Save to favourites</button>
+                <button id="saveBtn" (click)="removeFromFavourites()" *ngIf="isFav">Remove from favourites</button>
             </div>
         </div>
     </div>

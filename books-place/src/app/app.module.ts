@@ -13,10 +13,12 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { BooksModule } from './feature/books/books.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserService } from './core/user.service';
+import { UserService } from './core/services/user.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 import { CategoriesComponent } from './feature/categories/categories.component';
+import { MyFavsComponent } from './feature/pages/my-favs/my-favs.component';
+import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
 
 
 
@@ -28,6 +30,8 @@ import { CategoriesComponent } from './feature/categories/categories.component';
     CreateComponent,
     NotFoundComponent,
     CategoriesComponent,
+    MyFavsComponent,
+    FavItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { CategoriesComponent } from './feature/categories/categories.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+
 
   ],
   providers: [

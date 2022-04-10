@@ -12,6 +12,8 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 import { EditComponent } from './core/edit/edit.component';
 import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
+import { MyFavsComponent } from './feature/pages/my-favs/my-favs.component';
+import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +26,8 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile/favourites', component: MyFavsComponent },
+  { path: 'profile/favourites/:favId', component: FavItemComponent },
   { path: 'profile/edit', component: EditProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

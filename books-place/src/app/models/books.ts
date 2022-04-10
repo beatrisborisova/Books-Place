@@ -1,7 +1,7 @@
 import Book from './book';
 
 interface Books {
-    results: Array<Book>;
+    results: Book[];
 };
 
 export default Books;

@@ -9,18 +9,27 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeItemComponent } from '../pages/home-item/home-item.component';
 
 
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar, faStarHalfAlt, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { BarRatingModule } from 'ngx-bar-rating';
+
 @NgModule({
   declarations: [
     BookComponent,
     BooksComponent,
     BookDetailsComponent,
     HomeComponent,
-    HomeItemComponent
+    HomeItemComponent,
   ],
   imports: [
     CommonModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    
+    FontAwesomeModule,
+    BarRatingModule
   ],
   exports: [
     BookComponent,
@@ -30,4 +39,8 @@ import { HomeItemComponent } from '../pages/home-item/home-item.component';
     HomeItemComponent
   ]
 })
-export class BooksModule { }
+export class BooksModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faStar, faStarHalfAlt, farStar, faTimesCircle);
+  }
+ }

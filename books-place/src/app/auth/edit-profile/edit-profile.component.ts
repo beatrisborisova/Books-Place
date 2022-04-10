@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserProfile } from 'firebase/auth';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from 'src/app/core/user.service';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -15,6 +16,8 @@ export class EditProfileComponent implements OnInit {
 
   userId!: any;
   dataBindingModel!: any;
+  currentUser!: any;
+  profileInfo!: UserProfile;
 
 
   profileFormGroup: FormGroup = this.formBuilder.group({
@@ -25,7 +28,9 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userId = this.userService.uid;
+    this.currentUser = this.userService.getUser();
+    this.userId = this.currentUser.uid;
+
     this.userService.getUserProfile(this.userId).subscribe(data => {
       this.dataBindingModel = data;
     })
@@ -38,17 +43,27 @@ export class EditProfileComponent implements OnInit {
     let name = this.profileFormGroup.controls['name'].value;
     let city = this.profileFormGroup.controls['city'].value;
     let phone = this.profileFormGroup.controls['phone'].value;
+    let email = this.currentUser.email;
+    let favourites = this.currentUser.favourites;
+    let myBooks = this.currentUser.myBooks;
+    
+    console.log('favourites', favourites);
+    
 
-    const profileInfo = {
+    this.profileInfo = {
       [this.userId]: {
+        userId: this.userId,
         name,
+        email,
         city,
-        phone
+        phone,
+        myBooks,
+        favourites
       }
     }
 
 
-    this.userService.editUser(profileInfo).subscribe(data => {
+    this.userService.editUser(this.profileInfo).subscribe(data => {
       this.toastr.success('Profile updated', 'Success')
       this.router.navigate(['/profile'])
     })

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BookService } from '../core/book.service';
+import { BookService } from '../core/services/book.service';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../core/user.service';
+import { UserService } from '../core/services/user.service';
 
 @Component({
   selector: 'app-create',
@@ -13,7 +13,6 @@ import { UserService } from '../core/user.service';
 export class CreateComponent implements OnInit {
 
   public userId: any = localStorage.getItem('token');
-
 
   createFormGroup: FormGroup = this.formBuilder.group({
     title: new FormControl('', [Validators.required]),
@@ -28,7 +27,6 @@ export class CreateComponent implements OnInit {
     if (!this.userId) {
       this.router.navigate(['/login']);
     }
-
   }
 
   onCreate() {
@@ -37,16 +35,18 @@ export class CreateComponent implements OnInit {
     let year = this.createFormGroup.controls['year'].value;
     let resume = this.createFormGroup.controls['resume'].value;
     let owner = this.userService.uid;
+    let rating = 0;
 
     const book = {
       title,
       author,
       year,
       resume,
-      owner
+      rating,
+      owner,
     };
-    
-    this.bookService.createBook(book).subscribe(data =>{
+
+    this.bookService.createBook(book).subscribe(data => {
       this.toastr.success('Book added', 'Success')
       this.router.navigate(['/books'])
     });

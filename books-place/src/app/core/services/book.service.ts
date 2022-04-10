@@ -1,26 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import Books from '../models/books';
-import { UserService } from './user.service';
+import Books from '../../models/books';
 
 
-const BASE_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/books';
-
+const BASE_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/books/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  constructor(private http: HttpClient, private userService: UserService) { }
+  constructor(private http: HttpClient) { }
 
   getAllBooks(): Observable<any> {
     return this.http.get<any>(`${BASE_URL}.json`)
       .pipe(
         map((res: Response) => {
           if (res) {
-            return Object.entries(res).map(([id, v]) => Object.assign({}, { id }, v));
+            return Object.entries(res).map(([bookId, v]) => Object.assign({}, { bookId }, v));
           } else {
             return;
           }
@@ -30,6 +28,18 @@ export class BookService {
 
   getOneBook(bookId: string): Observable<any> {
     return this.http.get<Books>(`${BASE_URL}${bookId}.json`);
+  };
+
+  getMyBooks(userId: string): Observable<Books> {
+    return this.http.get<Books>(`https://books-place-c5f24-default-rtdb.firebaseio.com/users/${userId}/myBooks.json`)
+  };
+
+  getRaiters(): Observable<Books> {
+    return this.http.get<Books>(`https://books-place-c5f24-default-rtdb.firebaseio.com/raters.json`)
+  };
+
+  raiters(rait: {}): Observable<Books> {
+    return this.http.post<Books>(`https://books-place-c5f24-default-rtdb.firebaseio.com/raters.json`, rait)
   };
 
   createBook(book: {}): Observable<any> {
@@ -43,4 +53,7 @@ export class BookService {
   deleteBook(bookId: string): Observable<any> {
     return this.http.delete(`${BASE_URL}${bookId}.json`);
   };
+
+  //rateBook()
+
 }

@@ -1,16 +1,17 @@
 #book-container {
     margin: 20px auto;
-    width: 70%;
+    width: 50%;
 }
 
 #book-content {
     display: flex;
     border: 2px solid;
+    width: fit-content;
 }
 
 #image-wrapper {
     display: flex;
-    width: 300px;
+    width: 200px;
     margin: 20px;
     align-items: center;
 }
@@ -20,8 +21,9 @@
 }
 
 #book-info {
-    width: 50%;
+    width: 100%;
     margin: 20px;
+    text-align: center;
 }
 
 #book-info span {

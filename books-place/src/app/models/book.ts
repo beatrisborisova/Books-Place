@@ -1,12 +1,14 @@
 import User from "./user";
 
 interface Book {
-    id: string;
+    bookId: string;
     title: string;
     author: string;
     year: number;
     resume: string;
-    owner: User
+    owner: User;
+    favId: string;
+    rating: number;
 }
 
 export default Book;

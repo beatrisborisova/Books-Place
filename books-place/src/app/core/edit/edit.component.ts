@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Book from 'src/app/models/book';
-import { BookService } from '../book.service';
-import { UserService } from '../user.service';
+import { BookService } from '../services/book.service';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-edit',
@@ -45,6 +45,7 @@ export class EditComponent implements OnInit {
     let year = this.editFormGroup.controls['year'].value;
     let resume = this.editFormGroup.controls['resume'].value;
     let owner = this.userService.uid;
+    let rating = this.dataBindingModel.rating;
 
     const book = {
       [this.bookId]: {
@@ -52,6 +53,7 @@ export class EditComponent implements OnInit {
         author,
         year,
         resume,
+        rating,
         owner
       }
     }

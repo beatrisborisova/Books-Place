@@ -6,11 +6,13 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  UserProfile,
 } from 'firebase/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import User from 'src/app/models/user';
 
 let userdata!: any;
 const USERS_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/users/';
@@ -41,7 +43,8 @@ export class UserService {
             this.uid = userdata.uid;
           }
         })
-        this.router.navigate(['/']);
+
+        this.router.navigate(['/profile']);
         this.toastr.success('Registered', 'Success');
       })
       .catch(error => {
@@ -103,8 +106,8 @@ export class UserService {
     return auth.currentUser;
   }
 
-  editUser(user: {}): Observable<any> {
-    return this.http.patch(`${USERS_URL}.json`, user);
+  editUser(user: UserProfile): Observable<UserProfile> {
+    return this.http.patch<UserProfile>(`${USERS_URL}.json`, user);
   };
 
   getUserProfile(userId: string): Observable<any> {

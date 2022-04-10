@@ -13,3 +13,16 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="!dataBindingModel">
+    <div id="profile-container">
+        <div id="form-container">
+            <form [formGroup]="profileFormGroup" (ngSubmit)="onEditProfileInfo()">
+                <div><label>Name: <input type="text" name="name" formControlName="name"></label></div>
+                <div><label>City: <input type="text" name="city" formControlName="city"></label></div>
+                <div><label>Phone number: <input type="number" name="phone" formControlName="phone"></label></div>
+                <button type="submit" [disabled]="!profileFormGroup.valid">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

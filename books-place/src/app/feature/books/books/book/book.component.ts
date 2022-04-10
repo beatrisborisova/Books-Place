@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Book from '../../../../models/book';
 
 @Component({
@@ -10,10 +11,13 @@ export class BookComponent implements OnInit {
 
   @Input('book') book!: Book;
 
+  
+  
   constructor() { }
-
+  
   ngOnInit(): void {
-
   }
+
+
 
 }

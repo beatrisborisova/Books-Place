@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app";
 export class AppComponent implements OnInit {
   title = 'books-place';
 
+
   ngOnInit(): void {
     const app = initializeApp({
       apiKey: "AIzaSyAvVbCm0m8G3Wlb-LZxXsAS4EVO5I7234Q",
