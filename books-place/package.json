@@ -26,6 +26,7 @@
     "angular-material": "^1.2.4",
     "ngx-bar-rating": "^3.0.0",
     "ngx-toastr": "^14.2.3",
+    "firebase": "^9.6.10",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
