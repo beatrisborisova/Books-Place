@@ -30,11 +30,11 @@ export class BookService {
     return this.http.get<Books>(`${BASE_URL}${bookId}.json`);
   };
 
-  getMyBooks(userId: string): Observable<Books> {
-    return this.http.get<Books>(`https://books-place-c5f24-default-rtdb.firebaseio.com/users/${userId}/myBooks.json`)
+  getMyBooks(): Observable<Books> {
+    return this.http.get<Books>(`${BASE_URL}.json`);
   };
 
-  getRaiters(): Observable<Books> {
+  getRaters(): Observable<Books> {
     return this.http.get<Books>(`https://books-place-c5f24-default-rtdb.firebaseio.com/raters.json`)
   };
 

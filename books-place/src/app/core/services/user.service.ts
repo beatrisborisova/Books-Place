@@ -8,15 +8,14 @@ import {
   onAuthStateChanged,
   UserProfile,
 } from 'firebase/auth';
+
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import User from 'src/app/models/user';
 
 let userdata!: any;
 const USERS_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/users/';
-
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +45,7 @@ export class UserService {
 
         this.router.navigate(['/profile']);
         this.toastr.success('Registered', 'Success');
+        this.isLogged = true;
       })
       .catch(error => {
         this.toastr.error(error.message, 'Warning');
@@ -67,6 +67,8 @@ export class UserService {
         })
         this.router.navigate(['/']);
         this.toastr.success('Logged In', 'Success');
+        this.isLogged = true;
+
       })
       .catch(error => {
         this.toastr.error(error.message, 'Waring');

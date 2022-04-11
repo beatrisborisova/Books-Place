@@ -18,7 +18,8 @@ export class CreateComponent implements OnInit {
     title: new FormControl('', [Validators.required]),
     author: new FormControl('', [Validators.required]),
     year: new FormControl('', [Validators.required]),
-    resume: new FormControl('', [Validators.required])
+    resume: new FormControl('', [Validators.required]),
+    imageUrl: new FormControl('', [Validators.required]),
   })
 
   constructor(private bookService: BookService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService, private userService: UserService) { }
@@ -34,6 +35,7 @@ export class CreateComponent implements OnInit {
     let author = this.createFormGroup.controls['author'].value;
     let year = this.createFormGroup.controls['year'].value;
     let resume = this.createFormGroup.controls['resume'].value;
+    let imageUrl = this.createFormGroup.controls['imageUrl'].value;
     let owner = this.userService.uid;
     let rating = 0;
 
@@ -43,10 +45,11 @@ export class CreateComponent implements OnInit {
       year,
       resume,
       rating,
+      imageUrl,
       owner,
     };
 
-    this.bookService.createBook(book).subscribe(data => {
+    this.bookService.createBook(book).subscribe((data: any) => {
       this.toastr.success('Book added', 'Success')
       this.router.navigate(['/books'])
     });

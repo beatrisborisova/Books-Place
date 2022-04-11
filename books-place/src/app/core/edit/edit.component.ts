@@ -21,7 +21,8 @@ export class EditComponent implements OnInit {
     title: new FormControl('', [Validators.required]),
     author: new FormControl('', [Validators.required]),
     year: new FormControl('', [Validators.required]),
-    resume: new FormControl('', [Validators.required])
+    resume: new FormControl('', [Validators.required]),
+    imageUrl: new FormControl('', [Validators.required]),
   });
 
   constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private bookService: BookService, private toastr: ToastrService,
@@ -34,7 +35,7 @@ export class EditComponent implements OnInit {
     }
 
     this.bookId = this.route.snapshot.params['bookId'];
-    this.bookService.getOneBook(this.bookId).subscribe(data => {
+    this.bookService.getOneBook(this.bookId).subscribe((data: any) => {
       this.dataBindingModel = data;
     })
   }
@@ -44,6 +45,7 @@ export class EditComponent implements OnInit {
     let author = this.editFormGroup.controls['author'].value;
     let year = this.editFormGroup.controls['year'].value;
     let resume = this.editFormGroup.controls['resume'].value;
+    let imageUrl = this.editFormGroup.controls['imageUrl'].value;
     let owner = this.userService.uid;
     let rating = this.dataBindingModel.rating;
 
@@ -53,12 +55,13 @@ export class EditComponent implements OnInit {
         author,
         year,
         resume,
+        imageUrl,
         rating,
         owner
       }
     }
     
-    this.bookService.editBook(book).subscribe(data => {
+    this.bookService.editBook(book).subscribe((data: any) => {
       this.toastr.success('Book added', 'Success')
       this.router.navigate(['/books/details/' + this.bookId])
     });

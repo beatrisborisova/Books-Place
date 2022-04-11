@@ -1,0 +1,15 @@
+<div id="books-container" *ngIf="hasBooks else nobooks">
+    <div id="books-content">
+        <div *ngFor="let book of  books ;let i = index">
+            <app-book [book]="book"></app-book>
+        </div>
+    </div>
+</div>
+
+<ng-template #nobooks>
+    <div>
+        <p>
+            No books
+        </p>
+    </div>
+</ng-template>

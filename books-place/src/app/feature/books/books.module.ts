@@ -13,6 +13,8 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { faStar, faStarHalfAlt, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { BarRatingModule } from 'ngx-bar-rating';
+import { MyBooksComponent } from './my-books/my-books.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { BarRatingModule } from 'ngx-bar-rating';
     BookDetailsComponent,
     HomeComponent,
     HomeItemComponent,
+    MyBooksComponent,
+
   ],
   imports: [
     CommonModule,

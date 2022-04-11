@@ -14,6 +14,7 @@ import { EditComponent } from './core/edit/edit.component';
 import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
 import { MyFavsComponent } from './feature/pages/my-favs/my-favs.component';
 import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
+import { MyBooksComponent } from './feature/books/my-books/my-books.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'profile/favourites', component: MyFavsComponent },
   { path: 'profile/favourites/:favId', component: FavItemComponent },
   { path: 'profile/edit', component: EditProfileComponent },
+  { path: 'profile/books', component: MyBooksComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },

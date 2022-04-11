@@ -14,7 +14,6 @@ import Book from '../../../../models/book';
 
 
 export class BookDetailsComponent implements OnInit {
-  //TODO: Eventually should be removed - faRate = 4;
   fontAwesomeRate = 3.5;
   isRated!: boolean;
   allRates!: number;
@@ -30,6 +29,7 @@ export class BookDetailsComponent implements OnInit {
   favsId!: string;
   favBookId!: string;
   isFav!: boolean;
+
 
   hasRated!: any;
 
@@ -47,7 +47,7 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookId = this.route.snapshot.params['bookId'];
 
-    this.bookService.getOneBook(this.bookId).subscribe(data => {
+    this.bookService.getOneBook(this.bookId).subscribe((data: any) => {
       this.currentBook = data;
 
       if (this.hasToken == false) {
@@ -61,30 +61,36 @@ export class BookDetailsComponent implements OnInit {
       }
     });
 
-    this.bookService.getOneBook(this.bookId).subscribe(data => {
+    this.bookService.getOneBook(this.bookId).subscribe((data: any) => {
       this.allRates = Number(data.rating)
     })
 
-    this.bookService.getRaiters().subscribe(data => {
-      let allRaiting = Object.entries(data).map(([rateId, v]) => Object.assign({}, { rateId }, v));
 
-      allRaiting.forEach(el => {
-        if (el.userId == this.userService.uid) {
-          if (el.bookId == this.bookId) {
-            this.hasRated = true;
-          }
-        }
-      })
+    this.bookService.getRaters().subscribe((data: any) => {
 
+      let allRating = [data];
+      if (data) {
+        // !TODO let allRating = Object.entries(data).map(([rateId, v]) => Object.assign({}, { rateId }, v));
+
+        allRating.forEach(el => {
+          let current: any = Object.values(el);
+          current.forEach((c: any) => {
+            if (c.userId == this.userService.uid) {
+              if (c.bookId == this.bookId) {
+                this.hasRated = true;
+              }
+            }
+          })
+        })
+      }
     })
-
   }
 
 
   onRate() {
 
     this.currentBook.rating += this.rate;
-    this.allRates +=  this.rate;
+    this.allRates += this.rate;
     this.bookId = this.route.snapshot.params['bookId'];
 
     const book = {
@@ -96,10 +102,10 @@ export class BookDetailsComponent implements OnInit {
       userId: this.userService.uid
     }
 
-    this.bookService.editBook(book).subscribe(data => {
+    this.bookService.editBook(book).subscribe((data: any) => {
       this.isRated = true;
-      this.bookService.raiters(rainterAndBook).subscribe(data => {
-        
+      this.bookService.raiters(rainterAndBook).subscribe((data: any) => {
+
       })
     })
 
@@ -108,7 +114,7 @@ export class BookDetailsComponent implements OnInit {
 
   onDelete() {
     this.bookService.deleteBook(this.bookId)
-      .subscribe(data => {
+      .subscribe((data: any) => {
         this.router.navigate(['/books']);
         this.toastr.success('Book deleted', 'Success');
         return data;
@@ -134,7 +140,7 @@ export class BookDetailsComponent implements OnInit {
       owner,
       bookId: this.bookId,
     }
-    this.favsService.addToFavourites(book, userId).subscribe(data => {
+    this.favsService.addToFavourites(book, userId).subscribe((data: any) => {
       this.favBookId = data;
     })
     this.isFav = true;
@@ -146,18 +152,18 @@ export class BookDetailsComponent implements OnInit {
   removeFromFavourites() {
     const userId = this.userService.uid;
 
-    this.favsService.getOneFav(this.bookId, userId).subscribe(data => {
+    this.favsService.getOneFav(this.bookId, userId).subscribe((data: any) => {
       console.log(data);
 
     })
 
-    this.favsService.removeFromFavourites(this.bookId, userId).subscribe(data => {
+    this.favsService.removeFromFavourites(this.bookId, userId).subscribe((data: any) => {
       this.isFav = false;
       this.router.navigate(['/books/details/' + this.bookId]);
       this.toastr.success('Removed from favourites', 'Success');
     })
 
-    /*
+    /* TODO:
     this.favsService.getAllFavs(userId).subscribe(data => {
       this.favsId = data
 

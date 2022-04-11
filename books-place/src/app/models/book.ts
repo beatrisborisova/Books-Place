@@ -6,6 +6,7 @@ interface Book {
     author: string;
     year: number;
     resume: string;
+    imageUrl: string;
     owner: User;
     favId: string;
     rating: number;

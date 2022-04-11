@@ -7,6 +7,7 @@
                 <div><label>Author: <input type="text" name="author" formControlName="author" [(ngModel)]="dataBindingModel.author"></label></div>
                 <div><label>Year of publishing: <input type="text" name="year" formControlName="year" [(ngModel)]="dataBindingModel.year"></label></div>
                 <div><label>Resume: <textarea name="resume" formControlName="resume" [(ngModel)]="dataBindingModel.resume"></textarea></label></div>
+                <div><label>Image URL: <input type="text" name="imageUrl" formControlName="imageUrl" [(ngModel)]="dataBindingModel.imageUrl"></label></div>
                 <button type="submit" [disabled]="!editFormGroup.valid">Save</button>
             </form>
         </div>
