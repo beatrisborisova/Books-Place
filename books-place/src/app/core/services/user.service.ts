@@ -48,7 +48,7 @@ export class UserService {
         this.isLogged = true;
       })
       .catch(error => {
-        this.toastr.error(error.message, 'Warning');
+        this.toastr.error('Unsuccessful registration', 'Error')
       });
   }
 
@@ -71,7 +71,7 @@ export class UserService {
 
       })
       .catch(error => {
-        this.toastr.error(error.message, 'Waring');
+        this.toastr.error('Unsuccessful login', 'Error')
       })
   }
 

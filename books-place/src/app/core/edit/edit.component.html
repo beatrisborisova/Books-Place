@@ -3,11 +3,61 @@
         <div id="edit-book-content">
             <h2>Edit book</h2>
             <form [formGroup]="editFormGroup" (ngSubmit)="onEdit()">
-                <div><label>Title: <input type="text" name="title" formControlName="title" [(ngModel)]="dataBindingModel.title"></label></div>
-                <div><label>Author: <input type="text" name="author" formControlName="author" [(ngModel)]="dataBindingModel.author"></label></div>
-                <div><label>Year of publishing: <input type="text" name="year" formControlName="year" [(ngModel)]="dataBindingModel.year"></label></div>
-                <div><label>Resume: <textarea name="resume" formControlName="resume" [(ngModel)]="dataBindingModel.resume"></textarea></label></div>
-                <div><label>Image URL: <input type="text" name="imageUrl" formControlName="imageUrl" [(ngModel)]="dataBindingModel.imageUrl"></label></div>
+                <div><label>Title: <input type="text" name="title" formControlName="title"
+                            [(ngModel)]="dataBindingModel.title"></label></div>
+                <ng-container
+                    *ngIf="editFormGroup.controls['title'].touched && editFormGroup.controls['title'].invalid">
+                    <div *ngIf="editFormGroup.controls['title'].errors?.['required']" class="input-invalid">
+                        Book title is required
+                    </div>
+                </ng-container>
+
+                <div><label>Author: <input type="text" name="author" formControlName="author"
+                            [(ngModel)]="dataBindingModel.author"></label></div>
+                <ng-container
+                    *ngIf="editFormGroup.controls['author'].touched && editFormGroup.controls['author'].invalid">
+                    <div *ngIf="editFormGroup.controls['author'].errors?.['required']" class="input-invalid">
+                        Book author is required
+                    </div>
+                </ng-container>
+
+                <div><label>Year of publishing: <input type="text" name="year" formControlName="year"
+                            [(ngModel)]="dataBindingModel.year"></label></div>
+                <ng-container *ngIf="editFormGroup.controls['year'].touched && editFormGroup.controls['year'].invalid">
+                    <div *ngIf="editFormGroup.controls['year'].errors?.['required']" class="input-invalid">
+                        Book year of publishing is required
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="editFormGroup.controls['year'].touched && editFormGroup.controls['year'].invalid">
+                    <div *ngIf="editFormGroup.controls['year'].errors?.['min']" class="input-invalid">
+                        Book year must be bigger than 999.
+                    </div>
+                </ng-container>
+
+                <div><label>Resume: <textarea name="resume" formControlName="resume"
+                            [(ngModel)]="dataBindingModel.resume"></textarea></label></div>
+                <ng-container
+                    *ngIf="editFormGroup.controls['resume'].touched && editFormGroup.controls['resume'].invalid">
+                    <div *ngIf="editFormGroup.controls['resume'].errors?.['required']" class="input-invalid">
+                        Book resume is required
+                    </div>
+                    <div *ngIf="editFormGroup.controls['resume'].errors?.['minlength']" class="input-invalid">
+                        Book resume must be at least 20 characters long
+                    </div>
+                </ng-container>
+
+                <div><label>Image URL: <input type="text" name="imageUrl" formControlName="imageUrl"
+                            [(ngModel)]="dataBindingModel.imageUrl"></label></div>
+                <ng-container
+                    *ngIf="editFormGroup.controls['imageUrl'].touched && editFormGroup.controls['imageUrl'].invalid">
+                    <div *ngIf="editFormGroup.controls['imageUrl'].errors?.['required']" class="input-invalid">
+                        Image URL is required
+                    </div>
+                    <div *ngIf="editFormGroup.controls['imageUrl'].errors?.['pattern']" class="input-invalid">
+                        Image url must start with <b>http://</b> or <b>https://</b> and must ends with <b>.png</b>, <p>.jpeg</p> or <p>.jpg</p>
+                    </div>
+                </ng-container>
+
                 <button type="submit" [disabled]="!editFormGroup.valid">Save</button>
             </form>
         </div>

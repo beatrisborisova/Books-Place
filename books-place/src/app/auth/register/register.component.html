@@ -3,11 +3,41 @@
     <div id="required">* All fields are required</div>
     <div id="register-content">
         <form [formGroup]="registerFormGroup" (ngSubmit)="onRegister()">
-            <div><label>Email <input type="text" name="email" formControlName="email" required></label></div>
-            <div><label>Password <input type="password" name="password" formControlName="password" required></label>
-            </div>
-            <div><label>Repeat password <input type="password" name="repass" formControlName="repass" required></label>
-            </div>
+            <div><label>Email <input type="text" name="email" formControlName="email"></label></div>
+            <ng-container
+                *ngIf="registerFormGroup.controls['email'].touched && registerFormGroup.controls['email'].invalid">
+                <div *ngIf="registerFormGroup.controls['email'].errors?.['required']" class="input-invalid">
+                    Email is required
+                </div>
+                <div *ngIf="registerFormGroup.controls['email'].errors?.['pattern']" class="input-invalid">
+                    Email must be in the format of <b>valid@email.model</b>
+                </div>
+            </ng-container>
+            <div><label>Password <input type="password" name="password" formControlName="password"></label></div>
+            <ng-container
+                *ngIf="registerFormGroup.controls['password'].touched && registerFormGroup.controls['password'].invalid">
+                <div *ngIf="registerFormGroup.controls['password'].errors?.['required']" class="input-invalid">
+                    Password is required
+                </div>
+                <div *ngIf="registerFormGroup.controls['password'].errors?.['minlength']" class="input-invalid">
+                    Password must be at least 6 characters long
+                </div>
+            </ng-container>
+            <div><label>Repeat password <input type="password" name="repass" formControlName="repass"></label></div>
+            <ng-container
+                *ngIf="registerFormGroup.controls['repass'].touched && registerFormGroup.controls['repass'].invalid">
+                <div *ngIf="registerFormGroup.controls['repass'].errors?.['required']" class="input-invalid">
+                    Please repeat the password
+                </div>
+                <div *ngIf="registerFormGroup.controls['repass'].errors?.['minlength']" class="input-invalid">
+                    Repeat password must be at least 6 characters long
+                </div>
+            </ng-container>
+            <ng-container *ngIf="registerFormGroup.controls['repass'].valid">
+                <div *ngIf="registerFormGroup.controls['password'] != registerFormGroup.controls['repass']" class="input-invalid">
+                    Passwords don't match
+                </div>
+            </ng-container>
             <button type="submit" [disabled]="!registerFormGroup.valid">Sign up</button>
         </form>
         <p>Already signed up? Click<a routerLink="/login"> here</a></p>

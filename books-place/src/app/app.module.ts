@@ -16,10 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
-import { CategoriesComponent } from './feature/categories/categories.component';
 import { MyFavsComponent } from './feature/pages/my-favs/my-favs.component';
 import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
-
 
 
 @NgModule({
@@ -29,7 +27,6 @@ import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
     AboutComponent,
     CreateComponent,
     NotFoundComponent,
-    CategoriesComponent,
     MyFavsComponent,
     FavItemComponent,
   ],

@@ -17,9 +17,21 @@ export class CreateComponent implements OnInit {
   createFormGroup: FormGroup = this.formBuilder.group({
     title: new FormControl('', [Validators.required]),
     author: new FormControl('', [Validators.required]),
-    year: new FormControl('', [Validators.required]),
-    resume: new FormControl('', [Validators.required]),
-    imageUrl: new FormControl('', [Validators.required]),
+    year: new FormControl('', {
+      validators: [
+        Validators.required, Validators.min(1000)
+      ]
+    }),
+    resume: new FormControl('', {
+      validators: [
+        Validators.required, Validators.minLength(20)
+      ]
+    }),
+    imageUrl: new FormControl('', {
+      validators: [
+        Validators.required, Validators.pattern(/^https?:\/\/.+((\.jpg)|(\.png)|(\.jpeg))$/)
+      ]
+    }),
   })
 
   constructor(private bookService: BookService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService, private userService: UserService) { }

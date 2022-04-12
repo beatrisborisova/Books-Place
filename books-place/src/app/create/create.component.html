@@ -3,10 +3,55 @@
         <h2>Add new book</h2>
         <form [formGroup]="createFormGroup" (ngSubmit)="onCreate()">
             <div><label>Title: <input type="text" name="title" formControlName="title"></label></div>
+            <ng-container
+                *ngIf="createFormGroup.controls['title'].touched && createFormGroup.controls['title'].invalid">
+                <div *ngIf="createFormGroup.controls['title'].errors?.['required']" class="input-invalid">
+                    Book title is required
+                </div>
+            </ng-container>
+
             <div><label>Author: <input type="text" name="author" formControlName="author"></label></div>
+            <ng-container
+                *ngIf="createFormGroup.controls['author'].touched && createFormGroup.controls['author'].invalid">
+                <div *ngIf="createFormGroup.controls['author'].errors?.['required']" class="input-invalid">
+                    Book author is required
+                </div>
+            </ng-container>
+
             <div><label>Year of publishing: <input type="text" name="year" formControlName="year"></label></div>
+            <ng-container *ngIf="createFormGroup.controls['year'].touched && createFormGroup.controls['year'].invalid">
+                <div *ngIf="createFormGroup.controls['year'].errors?.['required']" class="input-invalid">
+                    Book year of publishing is required
+                </div>
+            </ng-container>
+            <ng-container *ngIf="createFormGroup.controls['year'].touched && createFormGroup.controls['year'].invalid">
+                <div *ngIf="createFormGroup.controls['year'].errors?.['min']" class="input-invalid">
+                    Book year must be bigger than 999.
+                </div>
+            </ng-container>
+
             <div><label>Resume: <textarea name="resume" formControlName="resume"></textarea></label></div>
+            <ng-container
+                *ngIf="createFormGroup.controls['resume'].touched && createFormGroup.controls['resume'].invalid">
+                <div *ngIf="createFormGroup.controls['resume'].errors?.['required']" class="input-invalid">
+                    Book resume is required
+                </div>
+                <div *ngIf="createFormGroup.controls['resume'].errors?.['minlength']" class="input-invalid">
+                    Book resume must be at least 20 characters long
+                </div>
+            </ng-container>
+
             <div><label>Image URL: <input type="text" name="imageUrl" formControlName="imageUrl"></label></div>
+            <ng-container
+                *ngIf="createFormGroup.controls['imageUrl'].touched && createFormGroup.controls['imageUrl'].invalid">
+                <div *ngIf="createFormGroup.controls['imageUrl'].errors?.['required']" class="input-invalid">
+                    Image URL is required
+                </div>
+                <div *ngIf="createFormGroup.controls['imageUrl'].errors?.['pattern']" class="input-invalid">
+                    Image url must start with <b>http://</b> or <b>https://</b> and must ends with <b>.png</b>, <p>.jpeg</p> or <p>.jpg</p>
+                </div>
+            </ng-container>
+
             <button type="submit" [disabled]="!createFormGroup.valid">Add book</button>
         </form>
     </div>

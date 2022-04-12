@@ -43,7 +43,9 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.hasToken = this.userService.isAuthenticated();
+    this.hasToken = !!localStorage.getItem('token');
+    console.log('hasToken', this.hasToken);
+
 
     this.bookId = this.route.snapshot.params['bookId'];
 

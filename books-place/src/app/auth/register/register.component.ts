@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../core/services/user.service';
 
 @Component({
@@ -11,12 +12,27 @@ import { UserService } from '../../core/services/user.service';
 export class RegisterComponent implements OnInit {
 
   registerFormGroup: FormGroup = this.formBuilder.group({
-    email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    repass: new FormControl('', [Validators.required]),
+    email: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.pattern(/^\w+@{1}\w+\.\w+$/)
+      ]
+    }),
+    password: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.minLength(6)
+      ]
+    }),
+    repass: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.minLength(6)
+      ]
+    }),
   })
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -33,11 +49,12 @@ export class RegisterComponent implements OnInit {
         throw new Error('Passwords don\'t match')
       }
     } catch (err: any) {
-      console.error(err.message);
-      //TODO: Missmatched passwords indicator
+      this.toastr.error('Passwords don\'t match', 'Error')
+      this.registerFormGroup.get('password')?.reset();
+      this.registerFormGroup.get('repass')?.reset();
     }
-
 
   }
 
 }
+

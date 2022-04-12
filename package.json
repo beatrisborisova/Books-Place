@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@angular/fire": "^7.3.0",
-    "firebase": "^9.6.10",
-    "ngx-toastr": "^14.2.3"
-  }
-}

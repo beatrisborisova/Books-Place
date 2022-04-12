@@ -8,7 +8,7 @@
                 <h2>Book info</h2>
 
                 <div><b>Rates</b>: {{allRates}}</div>
-                <div class="col-md-4" *ngIf="!hasRated && !isOwner">
+                <div class="col-md-4" *ngIf="hasToken && !hasRated && !isOwner">
                     <section *ngIf="!isRated" >
                         <p><b>Rate this book</b></p>
                         <bar-rating [max]="6" [(rate)]="rate">
