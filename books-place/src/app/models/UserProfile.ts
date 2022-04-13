@@ -1,5 +1,4 @@
 import Book from "./book";
-import Favourites from "./favourites";
 
 interface UserProfile {
     userId: string;
@@ -7,7 +6,6 @@ interface UserProfile {
     email: string;
     city: string;
     myBooks: Book[];
-    favourites: Favourites[];
 };
 
 export default UserProfile;

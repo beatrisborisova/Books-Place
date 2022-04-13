@@ -1,13 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
+
 * {
     font-family: 'Noto Sans', sans-serif;
 }
 
 body {
-    margin: 0;
+    position: relative;
+    width: 100%;
     min-height: 100vh;
+    margin: 0;
+    background-image: url("./assets/images/profile-page-packground.jpg");
+    background-size: cover;
+}
+
+main {
+    min-height: calc(100vh - 13vh);
 }
 
 .input-invalid {

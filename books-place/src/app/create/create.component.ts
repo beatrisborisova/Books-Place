@@ -48,7 +48,7 @@ export class CreateComponent implements OnInit {
     let year = this.createFormGroup.controls['year'].value;
     let resume = this.createFormGroup.controls['resume'].value;
     let imageUrl = this.createFormGroup.controls['imageUrl'].value;
-    let owner = this.userService.uid;
+    let owner = this.userService.uid;    
     let rating = 0;
 
     const book = {
@@ -60,6 +60,7 @@ export class CreateComponent implements OnInit {
       imageUrl,
       owner,
     };
+
 
     this.bookService.createBook(book).subscribe((data: any) => {
       this.toastr.success('Book added', 'Success')

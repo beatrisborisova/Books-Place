@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from 'src/app/core/services/book.service';
 import { UserService } from 'src/app/core/services/user.service';
 import Book from 'src/app/models/book';
+
+
 
 
 @Component({
@@ -18,7 +21,7 @@ export class HomeComponent implements OnInit {
   searchResults: any = [];
   noResults: boolean = false;
 
-  constructor(private userService: UserService, private bookService: BookService) { }
+  constructor(private userService: UserService, private bookService: BookService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hasUser = this.userService.isLogged;
@@ -49,4 +52,10 @@ export class HomeComponent implements OnInit {
     this.searchResults = [];
 
   }
+
+
+
+
+
+
 }

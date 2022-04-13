@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+
 let userdata!: any;
 const USERS_URL = 'https://books-place-c5f24-default-rtdb.firebaseio.com/users/';
 
@@ -115,4 +116,6 @@ export class UserService {
   getUserProfile(userId: string): Observable<any> {
     return this.http.get<any>(`${USERS_URL}${userId}.json`)
   };
+
+
 }

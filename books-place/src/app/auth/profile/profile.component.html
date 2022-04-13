@@ -1,14 +1,31 @@
 <div id="profile-container">
-    <h1>Your Profile</h1>
-    <div>Email: {{currentUser.email}}</div>
-    <div *ngIf="user">
-        <div *ngIf="user.name"> <label>Name: {{user.name}}</label></div>
-        <div *ngIf="user.city"><label>City: {{user.city}}</label></div>
-        <div *ngIf="user.phone"> <label>Phone number: {{user.phone}}</label></div>
+    <div id="profile-content">
+        <div class="user-info" *ngIf="user">
+            <div *ngIf="user.gender" id="user-gender-image-wrapper">
+                <div *ngIf="female">
+                    <img src="../../../assets/images/female-placeholder.jpg">
+                </div>
+                <div *ngIf="male">
+                    <img src="../../../assets/images/male-placeholder.png">
+                </div>
+            </div>
+            <div id="user-more-info">
+            <div class="user-info"><b>Email:</b> {{currentUser.email}}</div>
+                <div class="user-info" *ngIf="user.name"> <label><b>Name:</b> {{user.name}}</label></div>
+                <div class="user-info" *ngIf="user.gender"> <label><b>Gender:</b> {{user.gender}}</label></div>
+                <div class="user-info" *ngIf="user.city"><label><b>City:</b> {{user.city}}</label></div>
+                <div class="user-info" *ngIf="user.phone"> <label><b>Phone number:</b> {{user.phone}}</label></div>
+            </div>
+        </div>
     </div>
-    
 
-    <button routerLink="/profile/books">My books</button>
-    <button routerLink="/profile/favourites">My favourite books</button>
-    <button routerLink="/profile/edit">Edit profile info</button>
+
+    <div id="profile-controls">
+        <button routerLink="/profile/books">
+            <fa-icon [icon]="faBook"></fa-icon><br>My books
+        </button>
+        <button routerLink="/profile/edit">
+            <fa-icon [icon]="faEdit"></fa-icon><br>Edit profile info
+        </button>
+    </div>
 </div>

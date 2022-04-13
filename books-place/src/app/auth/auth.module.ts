@@ -6,6 +6,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
+
   ],
   providers: [
     FormBuilder,

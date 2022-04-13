@@ -1,18 +1,25 @@
 <div id="home-container">
     <div id="transp">
         <app-header></app-header>
-        <input type="search" name="search" [(ngModel)]="searchedValue" placeholder="Book name">
-        <button (click)="onSearch()">Search</button>
 
-        <div *ngIf="searchResults && searchedValue != ''">
-            <div *ngFor="let book of searchResults; let i = index">
-                <app-book [book]="book"></app-book>
+        <div id="search-container">
+            <div id="search-controls">
+                <input type="search" name="search" [(ngModel)]="searchedValue" placeholder="Book name">
+                <button (click)="onSearch()">Search</button>
             </div>
-        </div>
 
-        <div *ngIf="noResults">
-            <div class="custom-alert" role="alert">
-                No books found!
+            <div id="search-results">
+                <div *ngIf="searchResults && searchedValue != ''">
+                    <div *ngFor="let book of searchResults; let i = index">
+                        <app-book [book]="book"></app-book>
+                    </div>
+                </div>
+    
+                <div *ngIf="noResults">
+                    <div>
+                        No books found!
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -3,11 +3,20 @@ import { BookService } from 'src/app/core/services/book.service';
 import { UserService } from 'src/app/core/services/user.service';
 import Book from 'src/app/models/book';
 
+import { trigger, state, style, transition, animate } from '@angular/animations'
 
 @Component({
   selector: 'app-my-books',
   templateUrl: './my-books.component.html',
-  styleUrls: ['./my-books.component.css']
+  styleUrls: ['./my-books.component.css'],
+  animations: [
+    trigger('fadeInRight', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ]),
+  ]
 })
 export class MyBooksComponent implements OnInit {
 

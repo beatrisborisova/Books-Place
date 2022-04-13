@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/core/services/book.service';
-import { FavouritesService } from 'src/app/core/services/favourites.service';
 import { UserService } from '../../../../core/services/user.service';
 import Book from '../../../../models/book';
 
@@ -30,6 +29,10 @@ export class BookDetailsComponent implements OnInit {
   favBookId!: string;
   isFav!: boolean;
 
+  shorted!: string;
+  isExpanded: boolean = false;
+  resume!: string;
+
 
   hasRated!: any;
 
@@ -37,20 +40,18 @@ export class BookDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private toastr: ToastrService,
     private router: Router,
-    private userService: UserService,
-    private favsService: FavouritesService) { }
+    private userService: UserService) { }
 
 
   ngOnInit(): void {
 
     this.hasToken = !!localStorage.getItem('token');
-    console.log('hasToken', this.hasToken);
-
-
     this.bookId = this.route.snapshot.params['bookId'];
 
     this.bookService.getOneBook(this.bookId).subscribe((data: any) => {
       this.currentBook = data;
+      this.shorted = this.currentBook.resume
+      this.shorted = this.shorted.slice(0, 10);
 
       if (this.hasToken == false) {
         this.router.navigate(['/login']);
@@ -72,7 +73,6 @@ export class BookDetailsComponent implements OnInit {
 
       let allRating = [data];
       if (data) {
-        // !TODO let allRating = Object.entries(data).map(([rateId, v]) => Object.assign({}, { rateId }, v));
 
         allRating.forEach(el => {
           let current: any = Object.values(el);
@@ -121,65 +121,17 @@ export class BookDetailsComponent implements OnInit {
         this.toastr.success('Book deleted', 'Success');
         return data;
       })
-
-    this.removeFromFavourites();
   }
 
-  saveToFavourites() {
-    const userId = this.userService.uid;
+  onToggleExpand($event: any) {
+    this.isExpanded = !this.isExpanded;
 
-    let title = this.currentBook.title;
-    let author = this.currentBook.author;
-    let year = this.currentBook.year;
-    let resume = this.currentBook.resume;
-    let owner = this.currentBook.owner;
-
-    const book = {
-      title,
-      author,
-      year,
-      resume,
-      owner,
-      bookId: this.bookId,
+    if (this.isExpanded == true) {
+      this.resume = this.currentBook.resume;
+      $event.target.textContent = 'Hide full resume'
+    } else {
+      this.resume = this.shorted;
+      $event.target.textContent = 'Show full resume'
     }
-    this.favsService.addToFavourites(book, userId).subscribe((data: any) => {
-      this.favBookId = data;
-    })
-    this.isFav = true;
-
   }
-
-  //TODO: To be removet eventually
-  allFavs!: any;
-  removeFromFavourites() {
-    const userId = this.userService.uid;
-
-    this.favsService.getOneFav(this.bookId, userId).subscribe((data: any) => {
-      console.log(data);
-
-    })
-
-    this.favsService.removeFromFavourites(this.bookId, userId).subscribe((data: any) => {
-      this.isFav = false;
-      this.router.navigate(['/books/details/' + this.bookId]);
-      this.toastr.success('Removed from favourites', 'Success');
-    })
-
-    /* TODO:
-    this.favsService.getAllFavs(userId).subscribe(data => {
-      this.favsId = data
-
-      const values = Object.values(this.favsId)
-      console.log('key', values);
-
-      this.favsService.removeFromFavourites(values[0], userId).subscribe(data => {
-        this.isFav = false;
-        this.router.navigate(['/books/details/' + this.bookId]);
-        this.toastr.success('Removed from favourites', 'Success');
-      })
-    })
-    this.isFav = false;
-*/
-  }
-
 }

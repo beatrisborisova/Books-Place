@@ -7,7 +7,7 @@
             <div id="book-info">
                 <h2>Book info</h2>
 
-                <div><b>Rates</b>: {{allRates}}</div>
+                <div><b>Rating</b>: {{allRates}}</div>
                 <div class="col-md-4" *ngIf="hasToken && !hasRated && !isOwner">
                     <section *ngIf="!isRated" >
                         <p><b>Rate this book</b></p>
@@ -32,11 +32,13 @@
                 <div><span>Title:</span> {{currentBook.title}}</div>
                 <div><span>Author:</span> {{currentBook.author}}</div>
                 <div><span>Year of publishing:</span> {{currentBook.year}}</div>
-                <div><span>Resume:</span> {{currentBook.resume}}</div>
+                <button (click)="onToggleExpand($event)">Show full resume</button>
+                <ng-container>
+                    <div *ngIf="!isExpanded"><span>Resume:</span> {{shorted}}...</div>
+                    <div *ngIf="isExpanded"><span>Resume:</span> {{resume}}</div>
+                </ng-container>
                 <button id="editBtn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
                 <button id="deleteBtn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
-                <button id="saveBtn" (click)="saveToFavourites()" *ngIf="!isFav">Save to favourites</button>
-                <button id="saveBtn" (click)="removeFromFavourites()" *ngIf="isFav">Remove from favourites</button>
             </div>
         </div>
     </div>

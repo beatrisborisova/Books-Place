@@ -9,8 +9,7 @@ import { initializeApp } from "firebase/app";
 export class AppComponent implements OnInit {
   title = 'books-place';
 
-
-  ngOnInit(): void {
+  ngOnInit() {
     const app = initializeApp({
       apiKey: "AIzaSyAvVbCm0m8G3Wlb-LZxXsAS4EVO5I7234Q",
       authDomain: "books-place-c5f24.firebaseapp.com",
@@ -21,7 +20,6 @@ export class AppComponent implements OnInit {
       appId: "1:810236930063:web:cd05f8d99337b3ae4a1b7a",
       measurementId: "G-6R18PZJD22"
     });
-
-
   }
+
 }

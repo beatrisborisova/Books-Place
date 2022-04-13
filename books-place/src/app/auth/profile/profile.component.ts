@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
 
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,16 +14,28 @@ export class ProfileComponent implements OnInit {
   currentUser!: any;
   user!: any;
   userId!: any;
+  female: boolean = false;
+  male: boolean = false;
+  faBook = faBook;
+  faEdit = faEdit;
 
   constructor(private userService: UserService) { }
 
-  
+
   ngOnInit(): void {
     this.currentUser = this.userService.getUser();
     this.userId = this.currentUser.uid;
 
-   this.userService.getUserProfile(this.userId).subscribe(data => {
+    this.userService.getUserProfile(this.userId).subscribe(data => {
       this.user = data;
+      if (this.user.gender) {
+        if (this.user.gender == 'female') {
+          this.female = true;
+        }
+        if (this.user.gender == 'male') {
+          this.male = true;
+        }
+      }
     });
 
   }

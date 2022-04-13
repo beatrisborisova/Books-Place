@@ -4,11 +4,13 @@
     align-items: center;
     background: rgba(246,246,246,255);
     padding: 50px;
+    height: 66vh;
 }
 
 #create-book-content {
     text-align: center;
     width: 250px;
+    margin-top: 35px;
 }
 
 #title {

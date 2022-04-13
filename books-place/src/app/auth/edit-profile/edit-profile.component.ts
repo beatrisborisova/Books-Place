@@ -18,13 +18,19 @@ export class EditProfileComponent implements OnInit {
   dataBindingModel!: any;
   currentUser!: any;
   profileInfo!: UserProfile;
+  selectedGender: any;
 
 
   profileFormGroup: FormGroup = this.formBuilder.group({
     name: new FormControl(''),
+    gender: new FormControl(''),
     city: new FormControl(''),
     phone: new FormControl('', [Validators.minLength(10)])
   })
+
+  onGenderToggle(event: any) {
+    this.selectedGender = event.target.value;
+  }
 
   ngOnInit(): void {
 
@@ -41,24 +47,22 @@ export class EditProfileComponent implements OnInit {
     this.userId = this.userService.uid;
 
     let name = this.profileFormGroup.controls['name'].value;
+    let gender = this.selectedGender;
     let city = this.profileFormGroup.controls['city'].value;
     let phone = this.profileFormGroup.controls['phone'].value;
     let email = this.currentUser.email;
-    let favourites = this.currentUser.favourites;
     let myBooks = this.currentUser.myBooks;
-    
-    console.log('favourites', favourites);
-    
+
 
     this.profileInfo = {
       [this.userId]: {
         userId: this.userId,
         name,
+        gender,
         email,
         city,
         phone,
-        myBooks,
-        favourites
+        myBooks
       }
     }
 

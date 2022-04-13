@@ -2,10 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import Book from '../../../../models/book';
 import { BookService } from '../../../../core/services/book.service';
 
+import { trigger, state, style, transition, animate } from '@angular/animations'
+
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
+  animations: [
+    trigger('fadeInRight', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ]),
+  ]
+
 })
 export class BooksComponent implements OnInit {
 
@@ -17,9 +29,9 @@ export class BooksComponent implements OnInit {
 
     this.bookService.getAllBooks().subscribe(data => {
       this.allBooks = data;
+
     });
-
-
+    
   }
 
 }

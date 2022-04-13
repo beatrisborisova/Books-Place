@@ -14,6 +14,9 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -30,14 +33,19 @@ import { FormsModule } from '@angular/forms';
     CoreModule,
     AppRoutingModule,
     FormsModule,
-    
+
     FontAwesomeModule,
-    BarRatingModule
+    BarRatingModule,
+
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+
   ]
 })
 export class BooksModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(faStar, faStarHalfAlt, farStar, faTimesCircle);
   }
- }
+}
 

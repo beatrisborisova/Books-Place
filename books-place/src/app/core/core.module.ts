@@ -8,7 +8,6 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -18,7 +17,7 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     HeaderComponent,

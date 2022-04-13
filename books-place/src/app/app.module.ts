@@ -19,7 +19,6 @@ import { NotFoundComponent } from './feature/pages/not-found/not-found.component
 import { MyFavsComponent } from './feature/pages/my-favs/my-favs.component';
 import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +39,6 @@ import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-
-
   ],
   providers: [
     UserService,
@@ -50,7 +47,6 @@ import { FavItemComponent } from './feature/pages/fav-item/fav-item.component';
       useClass: TokenInterceptor,
       multi: true
     },
-
   ],
   bootstrap: [AppComponent]
 })
