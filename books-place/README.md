@@ -76,10 +76,10 @@ Users can rate the other users’ books based on their opinion by choosing a rat
 
 
 ## Application starting
-First you must install all dependencies included in the package.json file by typing npm install (or npm i) in a terminal.
+First you must install all dependencies included in the *package.json* file by typing **npm install** (or npm i) in a terminal.
 
-Then you must serve the angular application by typing ng serve in a terminal.
+Then you must serve the angular application by typing **ng serve** in a terminal.
 
-After than Books Place could be accessed on http://localhost:4200 url.
+After that Books Place could be accessed on http://localhost:4200 url.
 
 
