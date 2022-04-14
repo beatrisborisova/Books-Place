@@ -51,7 +51,7 @@ export class BookDetailsComponent implements OnInit {
     this.bookService.getOneBook(this.bookId).subscribe((data: any) => {
       this.currentBook = data;
       this.shorted = this.currentBook.resume
-      this.shorted = this.shorted.slice(0, 10);
+      this.shorted = this.shorted.slice(0, 100);
 
       if (this.hasToken == false) {
         this.router.navigate(['/login']);
@@ -80,6 +80,8 @@ export class BookDetailsComponent implements OnInit {
             if (c.userId == this.userService.uid) {
               if (c.bookId == this.bookId) {
                 this.hasRated = true;
+                console.log('hasRated', this.hasRated);
+                
               }
             }
           })
@@ -106,9 +108,7 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookService.editBook(book).subscribe((data: any) => {
       this.isRated = true;
-      this.bookService.raiters(rainterAndBook).subscribe((data: any) => {
-
-      })
+      this.bookService.raiters(rainterAndBook).subscribe();
     })
 
   }

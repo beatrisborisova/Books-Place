@@ -1,5 +1,7 @@
 #books-content {
     display: flex;
+    flex-wrap: wrap;
+    background: #b393637c;
 }
 
 #no-books {
@@ -25,4 +27,8 @@ button {
 #no-books button:hover {
     cursor: pointer;
     outline: none;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
 }

@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatProgressSpinnerModule,
 
   ],
   providers: [

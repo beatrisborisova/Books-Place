@@ -1,6 +1,7 @@
 #book-container {
     margin: 20px auto;
     width: 70%;
+    background: #927e6f5e;
 }
 
 #book-content {
@@ -39,7 +40,7 @@ button {
     background: rgba(252, 191, 126, 255);
     border: none;
     text-transform: uppercase;
-    font-weight: bold;
+
     font-size: 15px;
 }
 
@@ -54,4 +55,15 @@ button:hover {
 
 #saveBtn {
     background: rgb(171, 224, 174);
+}
+
+#resumeBtn {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 12px;
 }

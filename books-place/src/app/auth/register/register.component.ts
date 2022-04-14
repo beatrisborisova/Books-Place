@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     }),
   })
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) { }
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     localStorage.clear();

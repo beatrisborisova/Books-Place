@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'books', children: [
       { path: '', pathMatch: 'full', component: BooksComponent },
-      { path: 'details/:bookId', component: BookDetailsComponent },
+      { path: 'details/:bookId', component: BookDetailsComponent, canActivate: [AuthGuard] },
       { path: 'edit/:bookId', component: EditComponent, canActivate: [AuthGuard] },
     ]
   },

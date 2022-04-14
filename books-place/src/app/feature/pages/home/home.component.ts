@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from 'src/app/core/services/book.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -17,11 +18,15 @@ export class HomeComponent implements OnInit {
 
   hasUser: boolean = false;
   allBooks!: Book[];
-  searchedValue: string = '';
   searchResults: any = [];
   noResults: boolean = false;
+  searchedValue: string = '';
 
-  constructor(private userService: UserService, private bookService: BookService, private router: Router, private route: ActivatedRoute) { }
+  searchFormGroup: FormGroup = this.formBuilder.group({
+    search: new FormControl('')
+  })
+
+  constructor(private userService: UserService, private bookService: BookService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.hasUser = this.userService.isLogged;
@@ -36,6 +41,7 @@ export class HomeComponent implements OnInit {
     this.bookService.getAllBooks().subscribe(data => {
       data.forEach((book: any) => {
         if (this.searchedValue.trim()) {
+          
           if (book.title.toLocaleLowerCase().includes(this.searchedValue.toLocaleLowerCase())) {
             this.searchResults.push(book);
           }
@@ -52,10 +58,5 @@ export class HomeComponent implements OnInit {
     this.searchResults = [];
 
   }
-
-
-
-
-
 
 }

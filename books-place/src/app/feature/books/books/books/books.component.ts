@@ -10,7 +10,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css'],
   animations: [
-    trigger('fadeInRight', [
+    trigger('fadeIn', [
       state('void', style({
         opacity: 0
       })),

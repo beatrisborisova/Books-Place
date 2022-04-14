@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   userId!: any;
   female: boolean = false;
   male: boolean = false;
+  loading: boolean = true;
   faBook = faBook;
   faEdit = faEdit;
 
@@ -28,6 +29,11 @@ export class ProfileComponent implements OnInit {
 
     this.userService.getUserProfile(this.userId).subscribe(data => {
       this.user = data;
+
+      if (this.user) {
+        this.loading = false;
+      };
+
       if (this.user.gender) {
         if (this.user.gender == 'female') {
           this.female = true;

@@ -29,6 +29,7 @@
 
 #gender-controls {
     display: flex;
+    justify-content: center;
 }
 
 button {

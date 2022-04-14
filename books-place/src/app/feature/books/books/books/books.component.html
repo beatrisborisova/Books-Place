@@ -2,7 +2,7 @@
     <div id="books-content">
 
         <ng-container *ngIf="allBooks else loading">
-            <div *ngFor="let book of allBooks ;let i = index" [@fadeInRight]>
+            <div *ngFor="let book of allBooks ;let i = index" @fadeIn>
                 <app-book [book]="book"></app-book>
             </div>
         </ng-container>

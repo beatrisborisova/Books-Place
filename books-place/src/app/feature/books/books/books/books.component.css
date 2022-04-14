@@ -9,20 +9,6 @@
 
 }
 
-#load {
-    justify-content: center;
-    padding: 50px;
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-#load > mat-spinner {
-    margin: 20px auto;
-}
-
 :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #000000;
 }

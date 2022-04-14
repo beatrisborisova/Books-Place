@@ -4,25 +4,44 @@
             <form [formGroup]="profileFormGroup" (ngSubmit)="onEditProfileInfo()">
                 <div><label>Name: <input type="text" name="name" formControlName="name"
                             [(ngModel)]="dataBindingModel.name"></label></div>
+                <ng-container
+                    *ngIf="profileFormGroup.controls['name'].touched && profileFormGroup.controls['name'].invalid">
+                    <div *ngIf="profileFormGroup.controls['name'].errors?.['required']" class="input-invalid">
+                        Name is required
+                    </div>
+                </ng-container>
                 <div>
                     <label>Gender:
                         <div id="gender-controls">
                             <label><input type="radio" name="gender" formControlName="gender"
-                                [(ngModel)]="dataBindingModel.gender" value="male"
-                                (change)="onGenderToggle($event)"> Male</label>
+                                    [(ngModel)]="dataBindingModel.gender" value="male"
+                                    (change)="onGenderToggle($event)"> Male</label>
                             <label><input type="radio" name="gender" formControlName="gender"
-                                [(ngModel)]="dataBindingModel.gender" value="female"
-                                (change)="onGenderToggle($event)"> Female</label>
+                                    [(ngModel)]="dataBindingModel.gender" value="female"
+                                    (change)="onGenderToggle($event)"> Female</label>
                         </div>
                     </label>
                 </div>
+                <ng-container
+                    *ngIf="profileFormGroup.controls['gender'].touched && profileFormGroup.controls['gender'].invalid">
+                    <div *ngIf="profileFormGroup.controls['gender'].errors?.['required']" class="input-invalid">
+                        Gender is required
+                    </div>
+                </ng-container>
                 <div><label>City: <input type="text" name="city" formControlName="city"
                             [(ngModel)]="dataBindingModel.city"></label></div>
+                <ng-container
+                    *ngIf="profileFormGroup.controls['city'].touched && profileFormGroup.controls['city'].invalid">
+                    <div *ngIf="profileFormGroup.controls['city'].errors?.['required']" class="input-invalid">
+                        City is required
+                    </div>
+                </ng-container>
                 <div><label>Phone number: <input type="number" name="phone" formControlName="phone"
                             [(ngModel)]="dataBindingModel.phone"></label></div>
-                <ng-container *ngIf="profileFormGroup.controls['phone'].touched">
-                    <div *ngIf="profileFormGroup.controls['phone'].errors?.['minlength']" class="input-invalid">
-                        Book title is required
+                <ng-container
+                    *ngIf="profileFormGroup.controls['phone'].touched && profileFormGroup.controls['phone'].invalid">
+                    <div *ngIf="profileFormGroup.controls['phone'].errors?.['required']" class="input-invalid">
+                        Phone number is required
                     </div>
                 </ng-container>
                 <button type="submit" [disabled]="!profileFormGroup.valid">Add</button>
@@ -36,14 +55,42 @@
         <div id="form-container">
             <form [formGroup]="profileFormGroup" (ngSubmit)="onEditProfileInfo()">
                 <div><label>Name: <input type="text" name="name" formControlName="name"></label></div>
-                <div><label>City: <input type="text" name="city" formControlName="city"></label></div>
-                <div><label>Phone number: <input type="number" name="phone" formControlName="phone"></label></div>
-                <ng-container *ngIf="profileFormGroup.controls['phone'].touched">
-                    <div *ngIf="profileFormGroup.controls['phone'].errors?.['minlength']" class="input-invalid">
-                        Book title is required
+                <ng-container
+                    *ngIf="profileFormGroup.controls['name'].touched && profileFormGroup.controls['name'].invalid">
+                    <div *ngIf="profileFormGroup.controls['name'].errors?.['required']" class="input-invalid">
+                        Name is required
                     </div>
                 </ng-container>
-
+                <div>
+                    <label>Gender:
+                        <div id="gender-controls">
+                            <label><input type="radio" name="gender" formControlName="gender" value="male"
+                                    (change)="onGenderToggle($event)"> Male</label>
+                            <label><input type="radio" name="gender" formControlName="gender" value="female"
+                                    (change)="onGenderToggle($event)"> Female</label>
+                        </div>
+                    </label>
+                </div>
+                <ng-container
+                    *ngIf="profileFormGroup.controls['gender'].touched && profileFormGroup.controls['gender'].invalid">
+                    <div *ngIf="profileFormGroup.controls['gender'].errors?.['required']" class="input-invalid">
+                        Gender is required
+                    </div>
+                </ng-container>
+                <div><label>City: <input type="text" name="city" formControlName="city"></label></div>
+                <ng-container
+                    *ngIf="profileFormGroup.controls['city'].touched && profileFormGroup.controls['city'].invalid">
+                    <div *ngIf="profileFormGroup.controls['city'].errors?.['required']" class="input-invalid">
+                        City is required
+                    </div>
+                </ng-container>
+                <div><label>Phone number: <input type="number" name="phone" formControlName="phone"></label></div>
+                <ng-container
+                    *ngIf="profileFormGroup.controls['phone'].touched && profileFormGroup.controls['phone'].invalid">
+                    <div *ngIf="profileFormGroup.controls['phone'].errors?.['required']" class="input-invalid">
+                        Phone number is required
+                    </div>
+                </ng-container>
                 <button type="submit" [disabled]="!profileFormGroup.valid">Add</button>
             </form>
         </div>

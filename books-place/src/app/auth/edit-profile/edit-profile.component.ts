@@ -22,10 +22,10 @@ export class EditProfileComponent implements OnInit {
 
 
   profileFormGroup: FormGroup = this.formBuilder.group({
-    name: new FormControl(''),
-    gender: new FormControl(''),
-    city: new FormControl(''),
-    phone: new FormControl('', [Validators.minLength(10)])
+    name: new FormControl('', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required])
   })
 
   onGenderToggle(event: any) {
@@ -52,6 +52,7 @@ export class EditProfileComponent implements OnInit {
     let phone = this.profileFormGroup.controls['phone'].value;
     let email = this.currentUser.email;
     let myBooks = this.currentUser.myBooks;
+
 
 
     this.profileInfo = {

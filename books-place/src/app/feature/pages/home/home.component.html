@@ -3,19 +3,20 @@
         <app-header></app-header>
 
         <div id="search-container">
-            <div id="search-controls">
-                <input type="search" name="search" [(ngModel)]="searchedValue" placeholder="Book name">
-                <button (click)="onSearch()">Search</button>
-            </div>
+
+            <form [formGroup]="searchFormGroup" (ngSubmit)="onSearch()" id="search-controls">
+                <input type="search" name="search" placeholder="Book name" formControlName="search" [(ngModel)]="searchedValue">
+                <button type="submit">Search</button>
+            </form>
 
             <div id="search-results">
-                <div *ngIf="searchResults && searchedValue != ''">
+                <div id="results-books" *ngIf="searchResults">
                     <div *ngFor="let book of searchResults; let i = index">
                         <app-book [book]="book"></app-book>
                     </div>
                 </div>
     
-                <div *ngIf="noResults">
+                <div *ngIf="noResults" id="no-books">
                     <div>
                         No books found!
                     </div>

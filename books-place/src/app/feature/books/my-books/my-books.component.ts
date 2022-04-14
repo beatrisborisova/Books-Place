@@ -10,7 +10,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   templateUrl: './my-books.component.html',
   styleUrls: ['./my-books.component.css'],
   animations: [
-    trigger('fadeInRight', [
+    trigger('fadeIn', [
       state('void', style({
         opacity: 0
       })),
@@ -22,7 +22,8 @@ export class MyBooksComponent implements OnInit {
 
   allBooks!: Book[];
   books: Array<any> = [];
-  hasBooks: boolean =  false;
+  hasBooks: boolean = false;
+  loading: boolean = true;
 
   constructor(private bookService: BookService, private userService: UserService) { }
 
@@ -30,16 +31,17 @@ export class MyBooksComponent implements OnInit {
 
     this.bookService.getAllBooks().subscribe((data: any) => {
       this.allBooks = Array.from(data);
-      
+
       if (this.allBooks) {
-      this.allBooks.forEach((book: any) => {
+        this.allBooks.forEach((book: any) => {
           if (book.owner == this.userService.uid) {
             this.books.push(book);
             this.hasBooks = true;
           }
-        });        
+        });
+        this.loading = false;
       }
-    });    
+    });
   }
 
 

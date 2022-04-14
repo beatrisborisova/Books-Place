@@ -1,8 +1,7 @@
 #about-container {
     text-align: center;
-    height: calc(100vh - 26vh);
     background: #ffffff8a;
-    padding-top: 43px;
+    padding: 43px;
 }
 
 #about-content {
@@ -16,7 +15,7 @@
 
 #transp {
     z-index: 1;
-    padding-top: 80px;
+    padding-top: 15px;
 }
 
 #about-container::after {
@@ -48,4 +47,20 @@
 
 #image-wrapper img {
     width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 30px 20px 20px 0;
+    border-radius: 13px;
+    background: rgba(252, 191, 126, 255);
+    border: none;
+    text-transform: uppercase;
+
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
 }

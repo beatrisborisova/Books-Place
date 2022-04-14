@@ -6,6 +6,7 @@ import { BookService } from './services/book.service';
 import { UserService } from '../core/services/user.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { EditComponent } from './edit/edit.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule
   ],
   exports: [
     HeaderComponent,

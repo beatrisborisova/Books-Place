@@ -1,13 +1,18 @@
 <div id="books-container" *ngIf="hasBooks else nobooks">
     <div id="books-content">
-        <div *ngFor="let book of  books ;let i = index">
+        <div *ngFor="let book of  books ;let i = index" @fadeIn>
             <app-book [book]="book"></app-book>
         </div>
     </div>
 </div>
 
 <ng-template #nobooks>
-    <div id="no-books">
+    <div *ngIf="loading">
+        <div id="load">
+            Loading...<mat-spinner></mat-spinner>
+        </div>
+    </div>
+    <div *ngIf="!loading" id="no-books">
         <p>You haven't added any books yet.</p>
         <button routerLink="/create">Add your first book</button>
     </div>

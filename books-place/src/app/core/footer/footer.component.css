@@ -1,10 +1,20 @@
 #footer-container {
-    margin-top: auto;
     width: 100%;
-}
-
-#footer-container {
-    padding: 10px 0;
+    padding: 15px 0;
     background: rgb(171 107 40);
     text-align: center;
+}
+
+#footer-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#footer-content .col div {
+    margin-bottom: 12px;
+}
+
+#footer-content div a {
+    padding: 3px;
+    color: #000000;
 }

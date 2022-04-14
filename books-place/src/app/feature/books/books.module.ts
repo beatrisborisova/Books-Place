@@ -13,10 +13,9 @@ import { faStar, faStarHalfAlt, faTimesCircle } from '@fortawesome/free-solid-sv
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { MyBooksComponent } from './my-books/my-books.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -33,13 +32,13 @@ import { MatSliderModule } from '@angular/material/slider';
     CoreModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
 
     FontAwesomeModule,
     BarRatingModule,
 
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    MatSliderModule,
 
   ]
 })

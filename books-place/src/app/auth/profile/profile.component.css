@@ -11,6 +11,7 @@ h1 {
     padding: 50px;
     box-shadow: 5px 5px 18px 5px rgb(0 0 0 / 20%);
     background: #813b125d;
+    text-align: center;
 }
 
 #profile-content {
@@ -59,4 +60,8 @@ button {
 button:hover {
     cursor: pointer;
     outline: none;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
 }
