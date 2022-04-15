@@ -13,3 +13,14 @@
     font-size: 40px;
     padding: 30px;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #welcome {
+        font-size: 26px;
+    }
+
+
+}

@@ -39,3 +39,24 @@
 #date:hover {
     text-decoration: none;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    body {
+        width: fit-content;
+    }
+
+    #nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #nav-ul, #nav-user-ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        font-size: 20px;
+    }
+}

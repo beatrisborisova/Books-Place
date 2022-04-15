@@ -17,17 +17,17 @@
     opacity: 0.3;
 }
 
- #search-container {
+#search-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-} 
-
-#search-controls{
-    text-align:  center;
 }
 
-#search-controls input{
+#search-controls {
+    text-align: center;
+}
+
+#search-controls input {
     display: block;
     margin-bottom: 12px;
     height: 40px;
@@ -64,4 +64,19 @@
     font-weight: bold;
     font-size: 20px;
     color: rgb(140, 12, 12);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #search-container form input {
+        width: 200px;
+        background: #ffffff34;
+    }
+
+    #results-books {
+        justify-content: center;
+    }
+
 }

@@ -65,3 +65,16 @@ button:hover {
 :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #000000;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #user-more-info {
+        font-size: 13px;
+        overflow: hidden;
+        margin: 0;
+        width: 100%;
+    }
+
+}

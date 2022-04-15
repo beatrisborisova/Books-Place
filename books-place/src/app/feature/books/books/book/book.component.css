@@ -54,3 +54,21 @@ button:hover {
 #save-btn {
     background: rgb(171, 224, 174);
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #book-content {
+        display: block;
+    }
+
+    #image-wrapper {
+        width: fit-content;
+    }
+
+    #book-info {
+        width: 80%;
+        margin: 20px auto;
+    }
+}

@@ -56,11 +56,16 @@ export class BookDetailsComponent implements OnInit {
       if (this.hasToken == false) {
         this.router.navigate(['/login']);
       } else {
-        if (this.currentBook.owner != this.userService.uid) {
-          this.isOwner = false;
-        } else {
-          this.isOwner = true;
-        };
+        let user = this.userService.getUser();
+
+        if (user) {
+          if (this.currentBook.owner != user.uid) {
+            this.isOwner = false;
+          } else {
+            this.isOwner = true;
+          };
+        }
+
       }
     });
 
@@ -79,7 +84,7 @@ export class BookDetailsComponent implements OnInit {
           current.forEach((c: any) => {
             if (c.userId == this.userService.uid) {
               if (c.bookId == this.bookId) {
-                this.hasRated = true;                
+                this.hasRated = true;
               }
             }
           })
