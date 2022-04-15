@@ -3,6 +3,7 @@ import { UserService } from '../../core/services/user.service';
 
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,7 @@ export class ProfileComponent implements OnInit {
   faBook = faBook;
   faEdit = faEdit;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -32,16 +33,19 @@ export class ProfileComponent implements OnInit {
 
       if (this.user) {
         this.loading = false;
+        if (this.user.gender) {
+          if (this.user.gender == 'female') {
+            this.female = true;
+          }
+          if (this.user.gender == 'male') {
+            this.male = true;
+          }
+        }
+      } else {
+        this.router.navigate(['/profile/edit'])
       };
 
-      if (this.user.gender) {
-        if (this.user.gender == 'female') {
-          this.female = true;
-        }
-        if (this.user.gender == 'male') {
-          this.male = true;
-        }
-      }
+
     });
 
   }

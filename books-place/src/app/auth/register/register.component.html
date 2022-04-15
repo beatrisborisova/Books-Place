@@ -33,8 +33,8 @@
                     Repeat password must be at least 6 characters long
                 </div>
             </ng-container>
-            <ng-container *ngIf="registerFormGroup.controls['repass'].valid">
-                <div *ngIf="registerFormGroup.controls['password'] != registerFormGroup.controls['repass']" class="input-invalid">
+            <ng-container *ngIf="registerFormGroup.controls['repass'].touched && registerFormGroup.controls['repass'].valid">
+                <div *ngIf="registerFormGroup.controls['password'].value != registerFormGroup.controls['repass'].value" class="input-invalid">
                     Passwords don't match
                 </div>
             </ng-container>
