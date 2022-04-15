@@ -13,7 +13,6 @@
                 </p>
                 <button routerLink="/books">Enjoy!</button>
             </div>
-            <button (click)="onToggleInfo($event)">Show more info</button>
             <div id="more-info" *ngIf="showInfo">
                 <div>
                     <p id="intro">Project for Angular course at Software University</p>
@@ -23,6 +22,7 @@
                     <p id="name"><span>Project creator:</span> Beatris Borisova</p>
                 </div>
             </div>
+            <button id="showMore-btn" (click)="onToggleInfo($event)">Show more info</button>
         </div>
     </div>
 </div>

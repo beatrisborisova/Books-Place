@@ -10,7 +10,7 @@ import {
 } from 'firebase/auth';
 
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -27,8 +27,11 @@ export class UserService {
   isLogged: boolean = false;
   token!: any;
   uid!: any;
+  returnUrl!: string;
 
-  constructor(private toastr: ToastrService, private router: Router, private http: HttpClient) { }
+
+  constructor(private toastr: ToastrService, private router: Router, private http: HttpClient,
+    private route: ActivatedRoute) { }
 
   register(email: string, password: string) {
     const auth = getAuth();
@@ -56,6 +59,8 @@ export class UserService {
   login(email: string, password: string) {
     const auth = getAuth();
 
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
     signInWithEmailAndPassword(auth, email, password)
       .then(data => {
         onAuthStateChanged(auth, (user) => {
@@ -66,7 +71,9 @@ export class UserService {
             this.uid = userdata.uid;
           }
         })
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
+        this.router.navigateByUrl(this.returnUrl)
+
         this.toastr.success('Logged In', 'Success');
         this.isLogged = true;
 
@@ -81,8 +88,10 @@ export class UserService {
     signOut(auth)
       .then(() => {
         this.token = null;
-        this.router.navigate(['/']);
-        this.toastr.success('Logged out', 'Success');
+      //  this.router.navigate(['/']);
+       // this.toastr.success('Logged out', 'Success');
+       console.log(this.token);
+       
         localStorage.removeItem('token');
       })
 

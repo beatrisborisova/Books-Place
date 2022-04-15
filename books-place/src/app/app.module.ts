@@ -7,29 +7,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './feature/pages/about/about.component';
-import { CreateComponent } from './create/create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
-import { BooksModule } from './feature/books/books.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
+import { FeatureModule } from './feature/feature.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     AboutComponent,
-    CreateComponent,
     NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     AuthModule,
-    BooksModule,
+    FeatureModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

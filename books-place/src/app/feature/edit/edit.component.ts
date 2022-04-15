@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Book from 'src/app/models/book';
-import { BookService } from '../services/book.service';
+import { BookService } from '../../core/services/book.service';
 import { UserService } from '../../core/services/user.service';
 
 @Component({

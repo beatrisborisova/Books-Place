@@ -47,10 +47,10 @@ button:hover {
     outline: none;
 }
 
-#deleteBtn {
+#delete-btn {
     background: #ff7272;
 }
 
-#saveBtn {
+#save-btn {
     background: rgb(171, 224, 174);
 }

@@ -19,7 +19,6 @@
     border-bottom: 2px solid transparent;
 }
 
-
 .nav-item a {
     text-decoration: none;
     color: #ffffff;
@@ -28,4 +27,15 @@
 .nav-item:hover {
     cursor: pointer;
     border-bottom: 2px solid;
+}
+
+#date {
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px 8px;
+    border-bottom: 2px solid transparent;
+}
+
+#date:hover {
+    text-decoration: none;
 }

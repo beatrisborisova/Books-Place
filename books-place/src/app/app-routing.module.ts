@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './feature/pages/about/about.component';
 import { BooksComponent } from './feature/books/books/books/books.component';
-import { CreateComponent } from './create/create.component';
+import { CreateComponent } from './feature/create/create.component';
 import { HomeComponent } from './feature/pages/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './auth/profile/profile.component';
@@ -10,7 +10,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { BookDetailsComponent } from './feature/books/books/book-details/book-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
-import { EditComponent } from './core/edit/edit.component';
+import { EditComponent } from './feature/edit/edit.component';
 import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
 import { MyBooksComponent } from './feature/books/my-books/my-books.component';
 

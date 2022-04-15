@@ -2,15 +2,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(246,246,246,255);
+    background-image: url('../../../assets/images/create-page-background.jpg');
     padding: 50px;
-    height: 66vh;
 }
 
 #create-book-content {
     text-align: center;
     width: 250px;
     margin-top: 35px;
+    background: #ecc79396;
+    padding: 40px 80px;
+}
+
+form {
+    width: 250px;
 }
 
 #title {
@@ -20,7 +25,7 @@
 }
 
 #create-book-content div {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 #create-book-content label {
@@ -29,11 +34,11 @@
 
 #create-book-content input, textarea {
     outline: none;
-    width: 100%;
     padding: 5px;
     border-radius: 13px;
     border: 1px solid;
-
+    width: 250px;
+    margin-top: 7px;
 }
 
 button {

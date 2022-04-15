@@ -5,8 +5,8 @@
 #books-content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     background: #b393637c;
-
 }
 
 :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {

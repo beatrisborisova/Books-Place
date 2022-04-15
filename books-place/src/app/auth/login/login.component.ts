@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
 
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
+  returnUrl!: string;
+
+  constructor(private userService: UserService, private formBuilder: FormBuilder,
+    private route: ActivatedRoute) { }
 
   loginFormGroup: FormGroup = this.formBuilder.group({
     email: new FormControl('', [Validators.required]),
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    localStorage.clear();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onLogin() {

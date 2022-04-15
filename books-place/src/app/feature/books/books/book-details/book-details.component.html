@@ -41,11 +41,11 @@
                 <ng-container>
                     <div *ngIf="!isExpanded"><span>Resume:</span> {{shorted}}...</div>
                     <div *ngIf="isExpanded"><span>Resume:</span> {{resume}}</div>
-                    <button id="resumeBtn" (click)="onToggleExpand($event)">(Show full resume)</button>
+                    <button id="resume-btn" (click)="onToggleExpand($event)">(Show full resume)</button>
                 </ng-container>
 
-                <button id="editBtn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
-                <button id="deleteBtn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
+                <button id="edit-btn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
+                <button id="delete-btn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
             </div>
         </div>
     </div>

@@ -49,6 +49,10 @@
     width: 100%;
 }
 
+#more-info {
+    margin-top: 30px;
+}
+
 button {
     padding: 10px 20px;
     margin: 30px 20px 20px 0;
@@ -56,11 +60,22 @@ button {
     background: rgba(252, 191, 126, 255);
     border: none;
     text-transform: uppercase;
-
+    font-weight: bold;
     font-size: 15px;
 }
 
 button:hover {
     cursor: pointer;
     outline: none;
+}
+
+#showMore-btn {
+    background: #ffffff;
+    font-size: 10px;
+    font-weight: 100;
+}
+
+#app-info {
+    font-size: 16px;
+    margin: 30px;
 }

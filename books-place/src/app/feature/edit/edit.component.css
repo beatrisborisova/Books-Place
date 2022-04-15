@@ -2,12 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(246,246,246,255);
+    background-image: url('../../../assets/images/create-page-background.jpg');
     padding: 50px;
 }
 
 #edit-book-content {
     text-align: center;
+    width: 250px;
+    margin-top: 35px;
+    background: #ecc79396;
+    padding: 40px 80px;
+}
+
+form {
     width: 250px;
 }
 
@@ -31,7 +38,7 @@
     padding: 5px;
     border-radius: 13px;
     border: 1px solid;
-
+    margin-top: 7px;
 }
 
 button {

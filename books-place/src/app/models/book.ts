@@ -8,7 +8,6 @@ interface Book {
     resume: string;
     imageUrl: string;
     owner: User;
-    favId: string;
     rating: number;
 }
 

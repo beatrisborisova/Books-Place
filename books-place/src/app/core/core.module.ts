@@ -4,8 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookService } from './services/book.service';
 import { UserService } from '../core/services/user.service';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditComponent } from './edit/edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 
 
@@ -13,7 +12,6 @@ import { AppRoutingModule } from '../app-routing.module';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    EditComponent
   ],
   imports: [
     CommonModule,
@@ -27,8 +25,7 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   providers: [
     BookService,
-    UserService,
-    FormBuilder
+    UserService
   ]
 })
 export class CoreModule { }

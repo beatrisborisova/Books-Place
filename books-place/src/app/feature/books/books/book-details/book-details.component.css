@@ -49,15 +49,15 @@ button:hover {
     outline: none;
 }
 
-#deleteBtn {
+#delete-btn {
     background: #ff7272;
 }
 
-#saveBtn {
+#save-btn {
     background: rgb(171, 224, 174);
 }
 
-#resumeBtn {
+#resume-btn {
     display: block;
     margin: 0;
     padding: 0;
