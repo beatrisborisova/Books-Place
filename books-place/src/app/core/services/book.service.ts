@@ -54,6 +54,4 @@ export class BookService {
     return this.http.delete(`${BASE_URL}${bookId}.json`);
   };
 
-  //rateBook()
-
 }

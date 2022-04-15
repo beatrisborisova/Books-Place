@@ -79,9 +79,7 @@ export class BookDetailsComponent implements OnInit {
           current.forEach((c: any) => {
             if (c.userId == this.userService.uid) {
               if (c.bookId == this.bookId) {
-                this.hasRated = true;
-                console.log('hasRated', this.hasRated);
-                
+                this.hasRated = true;                
               }
             }
           })

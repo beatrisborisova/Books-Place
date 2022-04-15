@@ -71,7 +71,6 @@ export class UserService {
             this.uid = userdata.uid;
           }
         })
-        // this.router.navigate(['/']);
         this.router.navigateByUrl(this.returnUrl)
 
         this.toastr.success('Logged In', 'Success');
@@ -87,11 +86,7 @@ export class UserService {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        this.token = null;
-      //  this.router.navigate(['/']);
-       // this.toastr.success('Logged out', 'Success');
-       console.log(this.token);
-       
+        this.token = null;       
         localStorage.removeItem('token');
       })
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../core/services/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class NavigationComponent implements OnInit {
 
   date = new Date;
   
-  constructor(public userService: UserService, private router: Router) { }
+  constructor(public userService: UserService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -26,6 +27,7 @@ export class NavigationComponent implements OnInit {
 
   onLogout() {
     this.userService.logout();
+    this.toastr.success('Logged out', 'Success')
     this.router.navigate(['/']);
   }
 }
