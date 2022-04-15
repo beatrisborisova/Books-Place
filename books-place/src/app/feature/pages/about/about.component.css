@@ -73,6 +73,7 @@ button:hover {
     background: #ffffff;
     font-size: 10px;
     font-weight: 100;
+    outline: none;
 }
 
 #app-info {
