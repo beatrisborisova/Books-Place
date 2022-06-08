@@ -14,6 +14,7 @@ import { UserService } from '../../core/services/user.service';
 export class EditComponent implements OnInit {
 
   public userId: any = localStorage.getItem('token');
+  public maxYear: number = new Date().getFullYear();
   bookId!: string;
   dataBindingModel!: Book;
 
@@ -22,7 +23,8 @@ export class EditComponent implements OnInit {
     author: new FormControl('', [Validators.required]),
     year: new FormControl('', {
       validators: [
-        Validators.required, Validators.min(1000)
+        Validators.required, Validators.min(1000),
+        Validators.required, Validators.max(this.maxYear)
       ]
     }),
     resume: new FormControl('', {

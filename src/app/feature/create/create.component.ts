@@ -5,21 +5,24 @@ import { BookService } from '../../core/services/book.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../core/services/user.service';
 
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
+  
   public userId: any = localStorage.getItem('token');
+  public maxYear: number = new Date().getFullYear();
 
   createFormGroup: FormGroup = this.formBuilder.group({
     title: new FormControl('', [Validators.required]),
     author: new FormControl('', [Validators.required]),
     year: new FormControl('', {
       validators: [
-        Validators.required, Validators.min(1000)
+        Validators.required, Validators.min(1000),
+        Validators.required, Validators.max(this.maxYear)
       ]
     }),
     resume: new FormControl('', {
@@ -48,7 +51,7 @@ export class CreateComponent implements OnInit {
     let year = this.createFormGroup.controls['year'].value;
     let resume = this.createFormGroup.controls['resume'].value;
     let imageUrl = this.createFormGroup.controls['imageUrl'].value;
-    let owner = this.userService.uid;    
+    let owner = this.userService.uid;
     let rating = 0;
 
     const book = {

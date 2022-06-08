@@ -22,6 +22,9 @@ main {
 
 .input-invalid {
     color: red;
+    background-color: rgba(255, 249, 240, 0.463);
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 #load {

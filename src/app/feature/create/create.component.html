@@ -28,6 +28,9 @@
                 <div *ngIf="createFormGroup.controls['year'].errors?.['min']" class="input-invalid">
                     Book year must be bigger than 999.
                 </div>
+                <div *ngIf="createFormGroup.controls['year'].errors?.['max']" class="input-invalid" maxYear>
+                    Book year must be less than {{maxYear}}.
+                </div>
             </ng-container>
 
             <div><label>Resume: <textarea name="resume" formControlName="resume"></textarea></label></div>
@@ -48,7 +51,8 @@
                     Image URL is required
                 </div>
                 <div *ngIf="createFormGroup.controls['imageUrl'].errors?.['pattern']" class="input-invalid">
-                    Image url must start with <b>http://</b> or <b>https://</b> and must ends with <b>.png</b>, <p>.jpeg</p> or <p>.jpg</p>
+                    Image url must start with <b>http://</b> or <b>https://</b> and must ends with <b>.png</b>, <p>.jpeg
+                    </p> or <p>.jpg</p>
                 </div>
             </ng-container>
 

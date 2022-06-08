@@ -32,6 +32,9 @@
                     <div *ngIf="editFormGroup.controls['year'].errors?.['min']" class="input-invalid">
                         Book year must be bigger than 999.
                     </div>
+                    <div *ngIf="editFormGroup.controls['year'].errors?.['max']" class="input-invalid" maxYear>
+                        Book year must be less than {{maxYear}}.
+                    </div>
                 </ng-container>
 
                 <div><label>Resume: <textarea name="resume" formControlName="resume"
