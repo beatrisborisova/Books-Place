@@ -1,0 +1,14 @@
+#books-container {
+    margin: 50px 50px 0 50px;
+}
+
+#books-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #b393637c;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+}

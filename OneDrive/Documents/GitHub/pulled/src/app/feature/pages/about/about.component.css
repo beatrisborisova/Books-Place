@@ -1,0 +1,82 @@
+#about-container {
+    text-align: center;
+    background: #ffffff8a;
+    padding: 43px;
+}
+
+#about-content {
+    margin: 30px;
+}
+
+#title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#transp {
+    z-index: 1;
+    padding-top: 15px;
+}
+
+#about-container::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -99;
+    background-image: url('../../../../assets/images/home-page-books.jpg');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+#intro {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#module span, #course span, #name span {
+    font-weight: bold;
+}
+
+#image-wrapper {
+    margin: 20px auto;
+    width: 100px;
+}
+
+#image-wrapper img {
+    width: 100%;
+}
+
+#more-info {
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 30px 20px 20px 0;
+    border-radius: 13px;
+    background: rgba(252, 191, 126, 255);
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+}
+
+#showMore-btn {
+    background: #ffffff;
+    font-size: 10px;
+    font-weight: 100;
+    outline: none;
+}
+
+#app-info {
+    font-size: 16px;
+    margin: 30px;
+}

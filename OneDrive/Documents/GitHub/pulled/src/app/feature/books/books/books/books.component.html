@@ -1,0 +1,17 @@
+<div id="books-container">
+    <div id="books-content">
+
+        <ng-container *ngIf="allBooks else loading">
+            <div *ngFor="let book of allBooks ;let i = index" @fadeIn>
+                <app-book [book]="book"></app-book>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
+
+<ng-template #loading>
+    <div id="load">
+        Loading...<mat-spinner></mat-spinner>
+    </div>
+</ng-template>

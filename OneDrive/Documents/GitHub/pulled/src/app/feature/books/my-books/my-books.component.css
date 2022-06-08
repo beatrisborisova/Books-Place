@@ -1,0 +1,34 @@
+#books-content {
+    display: flex;
+    flex-wrap: wrap;
+    background: #b393637c;
+}
+
+#no-books {
+    text-align: center;
+}
+
+#no-books p {
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 30px 20px 20px 0;
+    border-radius: 13px;
+    background: rgba(252, 191, 126, 255);
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#no-books button:hover {
+    cursor: pointer;
+    outline: none;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+}

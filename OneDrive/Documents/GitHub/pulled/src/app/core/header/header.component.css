@@ -1,0 +1,26 @@
+#header-container {
+    text-align: center;
+}
+
+#header-content {
+    padding: 30px;
+    font-size: 25px;
+    color: #000000;
+}
+
+#welcome {
+    font-weight: bold;
+    font-size: 40px;
+    padding: 30px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #welcome {
+        font-size: 26px;
+    }
+
+
+}

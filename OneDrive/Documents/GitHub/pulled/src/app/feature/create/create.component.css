@@ -1,0 +1,59 @@
+#create-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../../../assets/images/create-page-background.jpg');
+    padding: 50px;
+}
+
+#create-book-content {
+    text-align: center;
+    width: 250px;
+    margin-top: 35px;
+    background: #ecc79396;
+    padding: 40px 80px;
+}
+
+form {
+    width: 250px;
+}
+
+#title {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+#create-book-content div {
+    margin-top: 20px;
+}
+
+#create-book-content label {
+    font-weight: bold;
+}
+
+#create-book-content input, textarea {
+    outline: none;
+    padding: 5px;
+    border-radius: 13px;
+    border: 1px solid;
+    width: 250px;
+    margin-top: 7px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 25px;
+    border-radius: 13px;
+    background: rgba(252, 191, 126, 255);
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+}
+

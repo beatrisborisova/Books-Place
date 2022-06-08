@@ -1,0 +1,30 @@
+#footer-container {
+    width: 100%;
+    padding: 15px 0;
+    background: rgb(171 107 40);
+    text-align: center;
+}
+
+#footer-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#footer-content .col div {
+    margin-bottom: 12px;
+}
+
+#footer-content div a {
+    padding: 3px;
+    color: #000000;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #footer-content {
+        display: block;
+    }
+
+}

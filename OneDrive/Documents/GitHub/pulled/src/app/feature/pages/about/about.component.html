@@ -1,0 +1,28 @@
+<div id="about-container">
+    <div id="transp">
+        <h1 id="title">About</h1>
+        <div id="about-content">
+            <div id="course-info">
+                <div id="image-wrapper">
+                    <img src="../../assets/images/softuniLogo.png" alt="softuniLogo">
+                </div>
+            </div>
+            <div id="app-info">
+                <p> This application is created for helping books lovers to choose easily their next book adventure.</p>
+                <p>We hope that even if you are not a consistent reader, you will find an inspiration in our Books Place
+                </p>
+                <button routerLink="/books">Enjoy!</button>
+            </div>
+            <div id="more-info" *ngIf="showInfo">
+                <div>
+                    <p id="intro">Project for Angular course at Software University</p>
+                    <p id="course"><span>Course:</span> Angular</p>
+                </div>
+                <div id="creator-info">
+                    <p id="name"><span>Project creator:</span> Beatris Borisova</p>
+                </div>
+            </div>
+            <button id="showMore-btn" (click)="onToggleInfo($event)">Show more info</button>
+        </div>
+    </div>
+</div>

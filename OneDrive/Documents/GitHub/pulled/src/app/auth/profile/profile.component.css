@@ -1,0 +1,80 @@
+h1 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 26px;
+}
+
+#profile-container {
+    width: 50%;
+    border: 1px solid;
+    margin: 50px auto;
+    padding: 50px;
+    box-shadow: 5px 5px 18px 5px rgb(0 0 0 / 20%);
+    background: #813b125d;
+    text-align: center;
+}
+
+#profile-content {
+    background: #ffffff33;
+    padding: 30px 50px;
+    text-align: left;
+    font-size: 20px;
+}
+
+#profile-controls {
+    background: #818181;
+    justify-content: center;
+}
+
+#user-gender-image-wrapper {
+    width: 100px;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+#user-gender-image-wrapper img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user-info {
+    margin: 10px auto;
+}
+
+#user-more-info {
+    width: 60%;
+    margin: 30px auto;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 30px;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 391px) {
+
+    #user-more-info {
+        font-size: 13px;
+        overflow: hidden;
+        margin: 0;
+        width: 100%;
+    }
+
+}
