@@ -34,7 +34,8 @@ export class EditComponent implements OnInit {
     }),
     imageUrl: new FormControl('', {
       validators: [
-        Validators.required, Validators.pattern(/^https?:\/\/.+((\.jpg)|(\.png)|(\.jpeg))$/)
+        Validators.required,
+        Validators.pattern(/^https?:\/\/.+((\.jpg)|(\.png)|(\.jpeg))$/)
       ]
     }),
   });
@@ -74,7 +75,7 @@ export class EditComponent implements OnInit {
         owner
       }
     }
-    
+
     this.bookService.editBook(book).subscribe((data: any) => {
       this.toastr.success('Book added', 'Success')
       this.router.navigate(['/books/details/' + this.bookId])

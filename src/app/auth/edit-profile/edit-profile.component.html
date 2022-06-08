@@ -36,12 +36,15 @@
                         City is required
                     </div>
                 </ng-container>
-                <div><label>Phone number: <input type="number" name="phone" formControlName="phone"
+                <div><label>Phone number: <input type="text" name="phone" formControlName="phone"
                             [(ngModel)]="dataBindingModel.phone"></label></div>
                 <ng-container
                     *ngIf="profileFormGroup.controls['phone'].touched && profileFormGroup.controls['phone'].invalid">
                     <div *ngIf="profileFormGroup.controls['phone'].errors?.['required']" class="input-invalid">
                         Phone number is required
+                    </div>
+                    <div *ngIf="profileFormGroup.controls['phone'].errors?.['phoneValidator']" class="input-invalid">
+                        Phone number must be 10 numbers long and 0-xxx-xxxx-xx format
                     </div>
                 </ng-container>
                 <button type="submit" [disabled]="!profileFormGroup.valid">Add</button>

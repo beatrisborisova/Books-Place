@@ -5,6 +5,7 @@ import { UserProfile } from 'firebase/auth';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../core/services/user.service';
 
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -20,13 +21,18 @@ export class EditProfileComponent implements OnInit {
   profileInfo!: UserProfile;
   selectedGender: any;
 
-
   profileFormGroup: FormGroup = this.formBuilder.group({
     name: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
-    phone: new FormControl('', [Validators.required])
+    phone: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.pattern(/^0(8|9)(7|8|9)(\d{7})$/)
+      ]
+    })
   })
+
 
   onGenderToggle(event: any) {
     this.selectedGender = event.target.value;
@@ -49,7 +55,7 @@ export class EditProfileComponent implements OnInit {
     let name = this.profileFormGroup.controls['name'].value;
     let gender = this.selectedGender;
     let city = this.profileFormGroup.controls['city'].value;
-    let phone = this.profileFormGroup.controls['phone'].value;
+    let phone: string = this.profileFormGroup.controls['phone'].value;
     let email = this.currentUser.email;
     let myBooks = this.currentUser.myBooks;
 
