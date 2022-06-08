@@ -1,12 +1,17 @@
 <article id="book-container" routerLink="/books/details/{{book.bookId}}">
     <div id="book-content">
         <div id="book-info">
-            <h2>{{book.title}}</h2>
-            <div id="image-wrapper">
-                <img src="{{book.imageUrl}}" alt="bookImage">
+            <div class="book-info-container">
+                <h2>{{book.title}}</h2>
+                <div id="image-wrapper">
+                    <img src="{{book.imageUrl}}" alt="bookImage">
+                </div>
+                <div><b>Author:</b> {{book.author}}</div>
             </div>
-            <div><b>Author:</b> {{book.author}}</div>
-            <button routerLink="/books/details/{{book.bookId}}">Details</button>
+            <div class="book-button-container">
+                <button routerLink="/books/details/{{book.bookId}}">Details</button>
+
+            </div>
         </div>
 
     </div>

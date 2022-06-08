@@ -16,7 +16,8 @@ body {
 }
 
 main {
-    min-height: calc(100vh - 13vh);
+    /* min-height: calc(100vh - 13vh); */
+    min-height: 100vh;
 }
 
 .input-invalid {
