@@ -10,6 +10,14 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  isLogged(): boolean {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
+    return false;
   }
 
 }
