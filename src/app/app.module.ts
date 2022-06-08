@@ -15,6 +15,11 @@ import { UserService } from './core/services/user.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NotFoundComponent } from './feature/pages/not-found/not-found.component';
 import { FeatureModule } from './feature/feature.module';
+// import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+// import { environment } from '../environments/environment';
+// import { provideAuth,getAuth } from '@angular/fire/auth';
+// import { provideDatabase,getDatabase } from '@angular/fire/database';
+// import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,10 @@ import { FeatureModule } from './feature/feature.module';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    // provideFirestore(() => getFirestore()),
   ],
   providers: [
     UserService,

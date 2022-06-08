@@ -31,8 +31,7 @@
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [
-           ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -101,6 +100,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "books-place:build:production",
+            "firebaseProject": "books-place-c5f24",
+            "firebaseHostingSite": "books-place-c5f24"
           }
         }
       }

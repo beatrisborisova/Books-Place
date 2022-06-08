@@ -4,7 +4,7 @@
 
         <div id="search-container">
 
-            <form [formGroup]="searchFormGroup" (ngSubmit)="onSearch()" id="search-controls">
+            <form [formGroup]="searchFormGroup" (ngSubmit)="onSearch(searchedValue)" id="search-controls">
                 <input type="search" name="search" placeholder="Book name" formControlName="search" [(ngModel)]="searchedValue">
                 <button type="submit">Search</button>
             </form>
