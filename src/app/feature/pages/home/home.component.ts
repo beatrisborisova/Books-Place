@@ -6,7 +6,8 @@ import { UserService } from 'src/app/core/services/user.service';
 import Book from 'src/app/models/book';
 
 
-
+const urlParams = new URLSearchParams(window.location.search);
+let param = urlParams.get('search')
 
 @Component({
   selector: 'app-home',
@@ -22,11 +23,12 @@ export class HomeComponent implements OnInit {
   noResults: boolean = false;
   searchedValue: string = '';
 
+
   searchFormGroup: FormGroup = this.formBuilder.group({
     search: new FormControl('')
   })
 
-  constructor(private userService: UserService, private bookService: BookService, private formBuilder: FormBuilder) { }
+  constructor(private userService: UserService, private bookService: BookService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.hasUser = this.userService.isLogged;
@@ -35,14 +37,30 @@ export class HomeComponent implements OnInit {
       localStorage.clear();
     }
 
+    if (param) {
+      this.onSearch(param);
+    } else {
+      this.onSearch('')
+    }
   }
 
-  onSearch() {
+  onSearch(value: any) {
+
+    if (value != '') {
+      this.router.navigate([], {
+        queryParams: {
+          search: value.trim()
+        },
+        // queryParamsHandling: 'merge',
+      });
+      param = this.searchedValue.trim();
+    }
+
     this.bookService.getAllBooks().subscribe(data => {
       data.forEach((book: any) => {
-        if (this.searchedValue.trim()) {
-          
-          if (book.title.toLocaleLowerCase().includes(this.searchedValue.toLocaleLowerCase())) {
+        if (value && value.trim() != '') {
+
+          if (book.title.toLocaleLowerCase().includes(value.trim().toLocaleLowerCase())) {
             this.searchResults.push(book);
           }
         }
