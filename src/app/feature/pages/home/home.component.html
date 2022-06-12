@@ -9,7 +9,7 @@
                 <button type="submit">Search</button>
             </form>
 
-            <div id="search-results">
+            <div id="search-results" *ngIf="!toHome">
                 <div id="results-books" *ngIf="searchResults">
                     <div *ngFor="let book of searchResults; let i = index">
                         <app-book [book]="book"></app-book>

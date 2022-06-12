@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BookService } from 'src/app/core/services/book.service';
 import { UserService } from 'src/app/core/services/user.service';
 import Book from 'src/app/models/book';
 
 
 const urlParams = new URLSearchParams(window.location.search);
-let param = urlParams.get('search')
+// let param = urlParams.get('search')
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
   searchResults: any = [];
   noResults: boolean = false;
   searchedValue: string = '';
-
+  param: any = urlParams.get('search')
+  toHome: boolean = true;
 
   searchFormGroup: FormGroup = this.formBuilder.group({
     search: new FormControl('')
@@ -33,19 +34,30 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.hasUser = this.userService.isLogged;
 
+    this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        if (e.urlAfterRedirects == '/') {
+          this.toHome = true
+          this.searchedValue = ''
+        }
+      }
+    })
+
     if (this.hasUser == false) {
       localStorage.clear();
     }
 
-    if (param) {
-      this.onSearch(param);
+    if (this.param) {
+      this.onSearch(this.param);
     } else {
       this.onSearch('')
     }
+    
   }
-
+  
   onSearch(value: any) {
-
+    
+    this.toHome = false;
     if (value != '') {
       this.router.navigate([], {
         queryParams: {
@@ -53,7 +65,7 @@ export class HomeComponent implements OnInit {
         },
         // queryParamsHandling: 'merge',
       });
-      param = this.searchedValue.trim();
+      this.param = this.searchedValue.trim();
     }
 
     this.bookService.getAllBooks().subscribe(data => {
