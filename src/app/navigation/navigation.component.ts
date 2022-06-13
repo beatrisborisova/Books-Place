@@ -11,7 +11,8 @@ import { UserService } from '../core/services/user.service';
 export class NavigationComponent implements OnInit {
 
   date = new Date;
-  
+  isExpanded: boolean = false;
+
   constructor(public userService: UserService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -29,5 +30,9 @@ export class NavigationComponent implements OnInit {
     this.userService.logout();
     this.toastr.success('Logged out', 'Success')
     this.router.navigate(['/']);
+  }
+
+  expandNav() {
+    this.isExpanded = !this.isExpanded;
   }
 }

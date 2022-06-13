@@ -68,3 +68,20 @@ button:hover {
     font-weight: bold;
     font-size: 12px;
 }
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 600px) {
+    #book-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #image-wrapper {
+        width: auto;   
+    }
+
+    #details-btns {
+        display: flex;
+    }
+}

@@ -44,8 +44,10 @@
                     <button id="resume-btn" (click)="onToggleExpand($event)">(Show full resume)</button>
                 </ng-container>
 
-                <button id="edit-btn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
-                <button id="delete-btn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
+                <div id="details-btns">
+                    <button id="edit-btn" routerLink="/books/edit/{{bookId}}" *ngIf="isOwner">Edit</button>
+                    <button id="delete-btn" (click)="onDelete()" *ngIf="isOwner">Delete</button>
+                </div>
             </div>
         </div>
     </div>

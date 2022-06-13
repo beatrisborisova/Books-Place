@@ -45,3 +45,9 @@
         grid-template-columns: 300px;
     }
 }
+
+@media screen and (max-width: 600px) {
+    #load {
+        width: auto;
+    }
+}

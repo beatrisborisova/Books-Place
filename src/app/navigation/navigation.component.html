@@ -1,4 +1,4 @@
-<nav id="nav-container">
+<nav class="nav-container" id="nav-desktop">
     <div id="nav-content">
         <ul id="nav-ul">
             <li class="nav-item"><a routerLink="/">Home</a></li>
@@ -7,7 +7,7 @@
             <li id="date">{{date | date}}</li>
         </ul>
     </div>
-    <div id="nav-user">
+    <div id="nav-user" *ngIf="!isExpanded">
         <ul id="nav-user-ul">
             <ng-container *ngIf="!isLogged() else logout">
                 <li class="nav-item"><a routerLink="/login">Login</a></li>
@@ -22,3 +22,33 @@
     <li class="nav-item"><a routerLink="/profile">Profile</a></li>
     <li class="nav-item"><a routerLink="/" (click)="onLogout()">Logout</a></li>
 </ng-template>
+
+<!-- Mobile -->
+
+<div class="on-mobile">
+    <nav class="nav-container">
+        <div (click)="expandNav()" class="on-mobile-menu">Menu</div>
+        <div id="nav-content" *ngIf="isExpanded == true">
+            <ul id="nav-ul">
+                <li class="nav-item"><a routerLink="/">Home</a></li>
+                <li class="nav-item"><a routerLink="/books">Books</a></li>
+                <li class="nav-item"><a routerLink="/about">About</a></li>
+                <li id="date">{{date | date}}</li>
+            </ul>
+        </div>
+        <div id="nav-user" *ngIf="isExpanded == true">
+            <ul id="nav-user-ul">
+                <ng-container *ngIf="!isLogged() else logout">
+                    <li class="nav-item"><a routerLink="/login">Login</a></li>
+                    <li class="nav-item"><a routerLink="/register">Register</a></li>
+                </ng-container>
+            </ul>
+        </div>
+    </nav>
+
+    <ng-template #logout>
+        <li class="nav-item"><a routerLink="/create">Add book</a></li>
+        <li class="nav-item"><a routerLink="/profile">Profile</a></li>
+        <li class="nav-item"><a routerLink="/" (click)="onLogout()">Logout</a></li>
+    </ng-template>
+</div>
