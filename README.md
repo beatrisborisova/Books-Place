@@ -77,6 +77,6 @@ Users can rate the other users’ books based on their opinion by choosing a rat
 
 ## Application starting
 
-Application can be accessed on https://books-place-c5f24.firebaseapp.com/
+Application can be accessed on [https://books-place-c5f24.firebaseapp.com/](https://books-place-9171c.web.app/)
 
 
