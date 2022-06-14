@@ -109,7 +109,7 @@
             "ssr": false,
             "browserTarget": "books-place:build:production",
             "firebaseProject": "books-place-c5f24",
-            "firebaseHostingSite": "books-place-c5f24"
+            "firebaseHostingSite": "books-place-9171c"
           }
         }
       }

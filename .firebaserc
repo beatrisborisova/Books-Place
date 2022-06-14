@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "books-place-c5f24"
+  },
+  "targets": {
+    "books-place-c5f24": {
+      "hosting": {
+        "books-place": [
+          "books-place-9171c"
+        ]
+      }
+    }
+  }
+}
